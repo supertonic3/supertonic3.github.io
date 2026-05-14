@@ -462,6 +462,73 @@ details.mobile-menu { display: none; }
   .hero-actions .btn { width: 100%; justify-content: center; }
 }
 
+/* Hero resource quicklinks — three pill-shaped anchors that mirror the
+   badge row on the HF model card. Quiet enough to live under the primary
+   CTAs without competing. Each pill: brand-color mark + key/value text. */
+.hero-quicklinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: clamp(22px, 3vw, 32px);
+}
+.quicklink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px 8px 8px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  text-decoration: none;
+  /* override global underline-gradient on <a> */
+  background-image: none;
+  transition: transform .12s ease, border-color .15s ease, box-shadow .15s ease;
+}
+.quicklink:hover {
+  transform: translateY(-1px);
+  border-color: rgba(11,12,14,.32);
+  box-shadow: var(--shadow-card);
+  background-image: none;
+}
+.quicklink .ql-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.quicklink .ql-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  gap: 1px;
+  min-width: 0;
+}
+.quicklink .ql-key {
+  font-weight: 600;
+  font-size: .9rem;
+  color: var(--ink);
+}
+.quicklink .ql-val {
+  font-family: var(--font-mono);
+  font-size: .66rem;
+  color: var(--muted);
+  letter-spacing: .03em;
+  white-space: nowrap;
+}
+/* Per-brand mark accents */
+.quicklink.ql-demo .ql-mark { background: var(--accent); color: var(--ink); }
+.quicklink.ql-code .ql-mark { background: var(--ink); color: #fff; }
+.quicklink.ql-sdk  .ql-mark { background: var(--info); color: #fff; }
+
 .hero-waveform {
   position: absolute;
   inset: auto 0 -1px 0;
