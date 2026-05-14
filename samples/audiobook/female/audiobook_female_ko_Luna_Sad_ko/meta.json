@@ -1,0 +1,14 @@
+{
+  "id": "audiobook/female/audiobook_female_ko_Luna_Sad_ko",
+  "category": "audiobook",
+  "gender": "female",
+  "speaker": "Luna",
+  "emotion": "Sad",
+  "prompt_lang": "ko",
+  "target_lang": "ko",
+  "text": "호랑이가 담배 피우던 먼 옛날, 별빛이 길을 알려주던 어느 밤에, 누군가의 운명을 바꿀 작은 문 하나가 조용히 열렸습니다.",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Luna_Sad_ko.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

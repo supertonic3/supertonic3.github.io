@@ -1,0 +1,14 @@
+{
+  "id": "conversation/male/conversation_male_ko_Jinha_Worry_ko",
+  "category": "conversation",
+  "gender": "male",
+  "speaker": "Jinha",
+  "emotion": "Worry",
+  "prompt_lang": "ko",
+  "target_lang": "ko",
+  "text": "답장이 늦어서 미안해. 알림은 봤는데, 뭐라고 말해야 할지 좀 고민했어.",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Jinha_Worry_ko.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

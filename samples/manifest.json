@@ -1,0 +1,436 @@
+{
+  "model_under_demo": "supertonic3",
+  "models_registered": [
+    "supertonic3"
+  ],
+  "categories": [
+    "audiobook",
+    "call-center",
+    "conversation",
+    "game",
+    "news"
+  ],
+  "count": 30,
+  "samples": [
+    {
+      "id": "game/female/game_female_ko_Coco_Embarrassed_ko",
+      "category": "game",
+      "gender": "female",
+      "speaker": "Coco",
+      "emotion": "Embarrassed",
+      "prompt_lang": "ko",
+      "target_lang": "ko",
+      "text": "안녕하세요 주인님! 저는 코코라고 해요. 앞으로 잘 부탁드려요~ ㅎㅎ<laugh>",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Coco_Embarrassed_ko.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "game/female/game_female_ja_Moka_Curious_ja",
+      "category": "game",
+      "gender": "female",
+      "speaker": "Moka",
+      "emotion": "Curious",
+      "prompt_lang": "ja",
+      "target_lang": "ja",
+      "text": "ふふっ、退屈してたところなの。ちょうどいい遊び相手、見つけたかも♪",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Moka_Curious_ja.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "game/female/game_female_ko_Shade_Neutral_en",
+      "category": "game",
+      "gender": "female",
+      "speaker": "Shade",
+      "emotion": "Neutral",
+      "prompt_lang": "ko",
+      "target_lang": "en",
+      "text": "Hey! How’s your day going? You look like you’ve got something fun to tell me.",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Shade_Neutral_ko.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "game/male/game_male_ko_Alphonse_Neutral_ko",
+      "category": "game",
+      "gender": "male",
+      "speaker": "Alphonse",
+      "emotion": "Neutral",
+      "prompt_lang": "ko",
+      "target_lang": "ko",
+      "text": "혼자 떠나기엔 길이 험하구나. 이 낡은 검을 가져가거라. 언젠가 어둠이 네 이름을 부르더라도, 부디 빛을 잊지 말거라.",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Alphonse_Neutral_ko.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "game/male/game_male_ja_Taiki_Sad_ja",
+      "category": "game",
+      "gender": "male",
+      "speaker": "Taiki",
+      "emotion": "Sad",
+      "prompt_lang": "ja",
+      "target_lang": "ja",
+      "text": "こんな結末、望んでなかった……俺だって、守りたかったんだよ！",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Taiki_Sad_ja.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "game/male/game_male_ko_Wayne_Neutral_en",
+      "category": "game",
+      "gender": "male",
+      "speaker": "Wayne",
+      "emotion": "Neutral",
+      "prompt_lang": "ko",
+      "target_lang": "en",
+      "text": "have crossed fire, blood, and ruin. If fate still demands a price, then let it come for me.",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Wayne_Neutral_ko.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "call-center/female/call-center_female_ko_Angelina_Serene_ko",
+      "category": "call-center",
+      "gender": "female",
+      "speaker": "Angelina",
+      "emotion": "Serene",
+      "prompt_lang": "ko",
+      "target_lang": "ko",
+      "text": "안녕하세요, 고객님. 문의 주셔서 감사합니다. 정확한 안내를 위해 내용 먼저 확인해보겠습니다.",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Angelina_Serene_ko.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "call-center/female/call-center_female_ko_Angelina_Serene_ja",
+      "category": "call-center",
+      "gender": "female",
+      "speaker": "Angelina",
+      "emotion": "Serene",
+      "prompt_lang": "ko",
+      "target_lang": "ja",
+      "text": "お電話ありがとうございます。スーパートーン・カスタマーサポートでございます。本日はどのようなご用件でしょうか？",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Angelina_Serene_ko.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "call-center/female/call-center_female_en_Nora_Neutral_en",
+      "category": "call-center",
+      "gender": "female",
+      "speaker": "Nora",
+      "emotion": "Neutral",
+      "prompt_lang": "en",
+      "target_lang": "en",
+      "text": "Good morning, thank you for calling. How can I help you today?",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Nora_Neutral_en.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "call-center/male/call-center_male_ko_Woojin_Neutral_ko",
+      "category": "call-center",
+      "gender": "male",
+      "speaker": "Woojin",
+      "emotion": "Neutral",
+      "prompt_lang": "ko",
+      "target_lang": "ko",
+      "text": "안녕하세요, 수퍼톤 고객센터입니다. 궁금하신 부분이나 필요하신 부분 편하게 말씀해 주시면, 제가 빠르게 확인하고, 끝까지 친절하게 도와드리겠습니다.",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Woojin_Neutral_ko.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "call-center/male/call-center_male_ja_Kazuki_Relieved_ja",
+      "category": "call-center",
+      "gender": "male",
+      "speaker": "Kazuki",
+      "emotion": "Relieved",
+      "prompt_lang": "ja",
+      "target_lang": "ja",
+      "text": "こんにちは。スーパートーン・カスタマーサポートです。お問い合わせありがとうございます。すぐに確認いたしますので、まずは内容をお聞かせください。",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Kazuki_Relieved_ja.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "call-center/male/call-center_male_ko_Woojin_Neutral_en",
+      "category": "call-center",
+      "gender": "male",
+      "speaker": "Woojin",
+      "emotion": "Neutral",
+      "prompt_lang": "ko",
+      "target_lang": "en",
+      "text": "Thank you for calling Supertone Customer Support. This is Woojin speaking. How can I help you today?",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Woojin_Neutral_ko.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "conversation/female/conversation_female_ko_Steelyn_Sad_ko",
+      "category": "conversation",
+      "gender": "female",
+      "speaker": "Steelyn",
+      "emotion": "Sad",
+      "prompt_lang": "ko",
+      "target_lang": "ko",
+      "text": "내가 왜 그랬지... 내가 정말 미안해... 진짜 일부로 그런건 아니야...!",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Steelyn_Sad_ko.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "conversation/female/conversation_female_ja_Hara_Neutral_ja",
+      "category": "conversation",
+      "gender": "female",
+      "speaker": "Hara",
+      "emotion": "Neutral",
+      "prompt_lang": "ja",
+      "target_lang": "ja",
+      "text": "今回は、スーパートーンから公開されたオンデバイスTTSモデル、スーパートニック3を実際に使ってみました。まず驚いたのは、これほど軽量なモデルでありながら、想像以上に自然で聞き取りやすい音声が生成できたことです。",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Hara_Neutral_ja.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "conversation/female/conversation_female_ko_Lina_Neutral_en",
+      "category": "conversation",
+      "gender": "female",
+      "speaker": "Lina",
+      "emotion": "Neutral",
+      "prompt_lang": "ko",
+      "target_lang": "en",
+      "text": "Hey! How’s your day going? You look like you’ve got something fun to tell me.",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Lina_Neutral_ko.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "conversation/male/conversation_male_ko_Jinha_Worry_ko",
+      "category": "conversation",
+      "gender": "male",
+      "speaker": "Jinha",
+      "emotion": "Worry",
+      "prompt_lang": "ko",
+      "target_lang": "ko",
+      "text": "답장이 늦어서 미안해. 알림은 봤는데, 뭐라고 말해야 할지 좀 고민했어.",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Jinha_Worry_ko.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "conversation/male/conversation_male_ja_Kazuki_Neutral_ja",
+      "category": "conversation",
+      "gender": "male",
+      "speaker": "Kazuki",
+      "emotion": "Neutral",
+      "prompt_lang": "ja",
+      "target_lang": "ja",
+      "text": "週末は人が多いところより、静かな場所に行くのもいいかもね。",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Kazuki_Neutral_ja.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "conversation/male/conversation_male_ja_Taiki_Sad_en",
+      "category": "conversation",
+      "gender": "male",
+      "speaker": "Taiki",
+      "emotion": "Sad",
+      "prompt_lang": "ja",
+      "target_lang": "en",
+      "text": "I just want to take a quiet walk today. You don’t have to say anything. Just being here is enough.",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Taiki_Sad_ja.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "audiobook/female/audiobook_female_ko_Luna_Sad_ko",
+      "category": "audiobook",
+      "gender": "female",
+      "speaker": "Luna",
+      "emotion": "Sad",
+      "prompt_lang": "ko",
+      "target_lang": "ko",
+      "text": "호랑이가 담배 피우던 먼 옛날, 별빛이 길을 알려주던 어느 밤에, 누군가의 운명을 바꿀 작은 문 하나가 조용히 열렸습니다.",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Luna_Sad_ko.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "audiobook/female/audiobook_female_ko_Bomi_Neutral_ja",
+      "category": "audiobook",
+      "gender": "female",
+      "speaker": "Bomi",
+      "emotion": "Neutral",
+      "prompt_lang": "ko",
+      "target_lang": "ja",
+      "text": "むかしむかし、月明かりが森の奥深くまでやさしく満ちていた夜のこと。誰にも思い出されることのない小さな村で、ひとつの物語が、静かに幕を開けました。",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Bomi_Neutral_ko.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "audiobook/female/audiobook_female_ko_Luna_Sad_en",
+      "category": "audiobook",
+      "gender": "female",
+      "speaker": "Luna",
+      "emotion": "Sad",
+      "prompt_lang": "ko",
+      "target_lang": "en",
+      "text": "I was not afraid of silence. I had lived with it long enough to know that, sometimes, it speaks more honestly than people do.",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Luna_Sad_ko.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "audiobook/male/audiobook_male_ko_Keld_Neutral_ko",
+      "category": "audiobook",
+      "gender": "male",
+      "speaker": "Keld",
+      "emotion": "Neutral",
+      "prompt_lang": "ko",
+      "target_lang": "ko",
+      "text": "소년은 검을 뽑지 않았다. 대신 한 걸음 물러서서, 자신이 정말 지켜야 할 것이 무엇인지 처음으로 생각했다.",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Keld_Neutral_ko.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "audiobook/male/audiobook_male_ko_Watson_Neutral_ja",
+      "category": "audiobook",
+      "gender": "male",
+      "speaker": "Watson",
+      "emotion": "Neutral",
+      "prompt_lang": "ko",
+      "target_lang": "ja",
+      "text": "その朝、ロンドンの霧はいつになく低く垂れこめていた。私はただの訪問者だと思っていたが、ホームズの目はすでに別の結論にたどり着いていた。",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Watson_Neutral_ko.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "audiobook/male/audiobook_male_ja_Isamu_Unfriendly_en",
+      "category": "audiobook",
+      "gender": "male",
+      "speaker": "Isamu",
+      "emotion": "Unfriendly",
+      "prompt_lang": "ja",
+      "target_lang": "en",
+      "text": "The night offered no mercy. But then, he had never expected mercy from the night.",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Isamu_Unfriendly_ja.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "news/female/news_female_ko_Bella_Kind_ko",
+      "category": "news",
+      "gender": "female",
+      "speaker": "Bella",
+      "emotion": "Kind",
+      "prompt_lang": "ko",
+      "target_lang": "ko",
+      "text": "여러분, 큰일났습니다! 이제 TTS 돌리려고 비싼 GPU 사용할 필요가 없어졌습니다. 수퍼토닉 쓰리, 이거 핸드폰에서도 돌아가는데... 심지어 서른한개 언어까지 지원합니다. 이건 모르셨으면 완전 손해보시는거에요.",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Bella_Kind_ko.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "news/female/news_female_ja_Jin_Neutral_ja",
+      "category": "news",
+      "gender": "female",
+      "speaker": "Jin",
+      "emotion": "Neutral",
+      "prompt_lang": "ja",
+      "target_lang": "ja",
+      "text": "皆さん、ニュースです。スーパートーンのオンデバイスTTSモデルスーパートニック3が公開されました。今回のアップデートでは、対応言語が31言語に拡大し、読み上げの安定性もさらに向上しています。",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Jin_Neutral_ja.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "news/female/news_female_ja_Jin_Neutral_en",
+      "category": "news",
+      "gender": "female",
+      "speaker": "Jin",
+      "emotion": "Neutral",
+      "prompt_lang": "ja",
+      "target_lang": "en",
+      "text": "Everyone, this is huge! You no longer need an expensive GPU just to run TTS. Supertonic 3 can even run on your phone and it supports thirty-one languages. If you didn’t know about this yet, you’re seriously missing out.",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Jin_Neutral_ja.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "news/male/news_male_ko_Jiny_Neutral_ko",
+      "category": "news",
+      "gender": "male",
+      "speaker": "Jiny",
+      "emotion": "Neutral",
+      "prompt_lang": "ko",
+      "target_lang": "ko",
+      "text": "오늘 전해드릴 소식은 수퍼톤의 수퍼토닉 쓰리입니다. 별도의 GPU 사용 없이 기기 안에서 음성을 합성할 수 있는 온디바이스 TTS 모델로, 네트워크가 없는 모바일과 PC 환경에서도 활용 가능하다는 점이 눈에 띕니다.",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Jiny_Neutral_ko.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "news/male/news_male_ja_Isamu_Unfriendly_ja",
+      "category": "news",
+      "gender": "male",
+      "speaker": "Isamu",
+      "emotion": "Unfriendly",
+      "prompt_lang": "ja",
+      "target_lang": "ja",
+      "text": "皆さん、注目のニュースです。スーパートーンのオンデバイスTTSモデル、スーパートニック3が公開されました。今回のバージョンでは、対応言語が31言語に拡大し、読み上げの安定性も向上しています。",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Isamu_Unfriendly_ja.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    },
+    {
+      "id": "news/male/news_male_ko_Keld_Neutral_en",
+      "category": "news",
+      "gender": "male",
+      "speaker": "Keld",
+      "emotion": "Neutral",
+      "prompt_lang": "ko",
+      "target_lang": "en",
+      "text": "Here’s a story worth paying attention to. Supertone has released Supertonic 3, its on-device TTS model. This version expands support to thirty-one languages and improves reading stability.",
+      "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Keld_Neutral_ko.wav",
+      "models": {
+        "supertonic3": "supertonic3.wav"
+      }
+    }
+  ]
+}

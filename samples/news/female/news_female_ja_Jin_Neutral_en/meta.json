@@ -1,0 +1,14 @@
+{
+  "id": "news/female/news_female_ja_Jin_Neutral_en",
+  "category": "news",
+  "gender": "female",
+  "speaker": "Jin",
+  "emotion": "Neutral",
+  "prompt_lang": "ja",
+  "target_lang": "en",
+  "text": "Everyone, this is huge! You no longer need an expensive GPU just to run TTS. Supertonic 3 can even run on your phone and it supports thirty-one languages. If you didn’t know about this yet, you’re seriously missing out.",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Jin_Neutral_ja.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

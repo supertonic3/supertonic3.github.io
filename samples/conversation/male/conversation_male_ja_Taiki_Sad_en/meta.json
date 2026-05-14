@@ -1,0 +1,14 @@
+{
+  "id": "conversation/male/conversation_male_ja_Taiki_Sad_en",
+  "category": "conversation",
+  "gender": "male",
+  "speaker": "Taiki",
+  "emotion": "Sad",
+  "prompt_lang": "ja",
+  "target_lang": "en",
+  "text": "I just want to take a quiet walk today. You don’t have to say anything. Just being here is enough.",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Taiki_Sad_ja.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

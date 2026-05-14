@@ -1,0 +1,14 @@
+{
+  "id": "news/male/news_male_ko_Jiny_Neutral_ko",
+  "category": "news",
+  "gender": "male",
+  "speaker": "Jiny",
+  "emotion": "Neutral",
+  "prompt_lang": "ko",
+  "target_lang": "ko",
+  "text": "오늘 전해드릴 소식은 수퍼톤의 수퍼토닉 쓰리입니다. 별도의 GPU 사용 없이 기기 안에서 음성을 합성할 수 있는 온디바이스 TTS 모델로, 네트워크가 없는 모바일과 PC 환경에서도 활용 가능하다는 점이 눈에 띕니다.",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Jiny_Neutral_ko.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

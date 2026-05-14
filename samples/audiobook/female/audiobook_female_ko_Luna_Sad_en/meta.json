@@ -1,0 +1,14 @@
+{
+  "id": "audiobook/female/audiobook_female_ko_Luna_Sad_en",
+  "category": "audiobook",
+  "gender": "female",
+  "speaker": "Luna",
+  "emotion": "Sad",
+  "prompt_lang": "ko",
+  "target_lang": "en",
+  "text": "I was not afraid of silence. I had lived with it long enough to know that, sometimes, it speaks more honestly than people do.",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Luna_Sad_ko.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

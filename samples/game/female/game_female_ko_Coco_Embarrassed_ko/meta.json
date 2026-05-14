@@ -1,0 +1,14 @@
+{
+  "id": "game/female/game_female_ko_Coco_Embarrassed_ko",
+  "category": "game",
+  "gender": "female",
+  "speaker": "Coco",
+  "emotion": "Embarrassed",
+  "prompt_lang": "ko",
+  "target_lang": "ko",
+  "text": "안녕하세요 주인님! 저는 코코라고 해요. 앞으로 잘 부탁드려요~ ㅎㅎ<laugh>",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Coco_Embarrassed_ko.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

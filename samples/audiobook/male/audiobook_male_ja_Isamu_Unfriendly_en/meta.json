@@ -1,0 +1,14 @@
+{
+  "id": "audiobook/male/audiobook_male_ja_Isamu_Unfriendly_en",
+  "category": "audiobook",
+  "gender": "male",
+  "speaker": "Isamu",
+  "emotion": "Unfriendly",
+  "prompt_lang": "ja",
+  "target_lang": "en",
+  "text": "The night offered no mercy. But then, he had never expected mercy from the night.",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Isamu_Unfriendly_ja.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "conversation/female/conversation_female_ja_Hara_Neutral_ja",
+  "category": "conversation",
+  "gender": "female",
+  "speaker": "Hara",
+  "emotion": "Neutral",
+  "prompt_lang": "ja",
+  "target_lang": "ja",
+  "text": "今回は、スーパートーンから公開されたオンデバイスTTSモデル、スーパートニック3を実際に使ってみました。まず驚いたのは、これほど軽量なモデルでありながら、想像以上に自然で聞き取りやすい音声が生成できたことです。",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Hara_Neutral_ja.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

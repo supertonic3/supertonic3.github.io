@@ -1,0 +1,14 @@
+{
+  "id": "conversation/male/conversation_male_ja_Kazuki_Neutral_ja",
+  "category": "conversation",
+  "gender": "male",
+  "speaker": "Kazuki",
+  "emotion": "Neutral",
+  "prompt_lang": "ja",
+  "target_lang": "ja",
+  "text": "週末は人が多いところより、静かな場所に行くのもいいかもね。",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Kazuki_Neutral_ja.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

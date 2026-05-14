@@ -1,0 +1,14 @@
+{
+  "id": "call-center/male/call-center_male_ko_Woojin_Neutral_ko",
+  "category": "call-center",
+  "gender": "male",
+  "speaker": "Woojin",
+  "emotion": "Neutral",
+  "prompt_lang": "ko",
+  "target_lang": "ko",
+  "text": "안녕하세요, 수퍼톤 고객센터입니다. 궁금하신 부분이나 필요하신 부분 편하게 말씀해 주시면, 제가 빠르게 확인하고, 끝까지 친절하게 도와드리겠습니다.",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Woojin_Neutral_ko.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "news/male/news_male_ko_Keld_Neutral_en",
+  "category": "news",
+  "gender": "male",
+  "speaker": "Keld",
+  "emotion": "Neutral",
+  "prompt_lang": "ko",
+  "target_lang": "en",
+  "text": "Here’s a story worth paying attention to. Supertone has released Supertonic 3, its on-device TTS model. This version expands support to thirty-one languages and improves reading stability.",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Keld_Neutral_ko.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

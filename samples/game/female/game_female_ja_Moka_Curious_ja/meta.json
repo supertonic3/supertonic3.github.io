@@ -1,0 +1,14 @@
+{
+  "id": "game/female/game_female_ja_Moka_Curious_ja",
+  "category": "game",
+  "gender": "female",
+  "speaker": "Moka",
+  "emotion": "Curious",
+  "prompt_lang": "ja",
+  "target_lang": "ja",
+  "text": "ふふっ、退屈してたところなの。ちょうどいい遊び相手、見つけたかも♪",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Moka_Curious_ja.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

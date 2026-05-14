@@ -1,0 +1,14 @@
+{
+  "id": "game/male/game_male_ja_Taiki_Sad_ja",
+  "category": "game",
+  "gender": "male",
+  "speaker": "Taiki",
+  "emotion": "Sad",
+  "prompt_lang": "ja",
+  "target_lang": "ja",
+  "text": "こんな結末、望んでなかった……俺だって、守りたかったんだよ！",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Taiki_Sad_ja.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

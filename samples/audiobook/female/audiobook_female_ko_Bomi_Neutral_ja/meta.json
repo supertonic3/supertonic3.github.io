@@ -1,0 +1,14 @@
+{
+  "id": "audiobook/female/audiobook_female_ko_Bomi_Neutral_ja",
+  "category": "audiobook",
+  "gender": "female",
+  "speaker": "Bomi",
+  "emotion": "Neutral",
+  "prompt_lang": "ko",
+  "target_lang": "ja",
+  "text": "むかしむかし、月明かりが森の奥深くまでやさしく満ちていた夜のこと。誰にも思い出されることのない小さな村で、ひとつの物語が、静かに幕を開けました。",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Bomi_Neutral_ko.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "audiobook/male/audiobook_male_ko_Watson_Neutral_ja",
+  "category": "audiobook",
+  "gender": "male",
+  "speaker": "Watson",
+  "emotion": "Neutral",
+  "prompt_lang": "ko",
+  "target_lang": "ja",
+  "text": "その朝、ロンドンの霧はいつになく低く垂れこめていた。私はただの訪問者だと思っていたが、ホームズの目はすでに別の結論にたどり着いていた。",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Watson_Neutral_ko.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "call-center/female/call-center_female_ko_Angelina_Serene_ko",
+  "category": "call-center",
+  "gender": "female",
+  "speaker": "Angelina",
+  "emotion": "Serene",
+  "prompt_lang": "ko",
+  "target_lang": "ko",
+  "text": "안녕하세요, 고객님. 문의 주셔서 감사합니다. 정확한 안내를 위해 내용 먼저 확인해보겠습니다.",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Angelina_Serene_ko.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

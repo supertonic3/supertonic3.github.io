@@ -1,0 +1,14 @@
+{
+  "id": "conversation/female/conversation_female_ko_Steelyn_Sad_ko",
+  "category": "conversation",
+  "gender": "female",
+  "speaker": "Steelyn",
+  "emotion": "Sad",
+  "prompt_lang": "ko",
+  "target_lang": "ko",
+  "text": "내가 왜 그랬지... 내가 정말 미안해... 진짜 일부로 그런건 아니야...!",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Steelyn_Sad_ko.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

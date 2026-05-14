@@ -1,0 +1,14 @@
+{
+  "id": "conversation/female/conversation_female_ko_Lina_Neutral_en",
+  "category": "conversation",
+  "gender": "female",
+  "speaker": "Lina",
+  "emotion": "Neutral",
+  "prompt_lang": "ko",
+  "target_lang": "en",
+  "text": "Hey! How’s your day going? You look like you’ve got something fun to tell me.",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Lina_Neutral_ko.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

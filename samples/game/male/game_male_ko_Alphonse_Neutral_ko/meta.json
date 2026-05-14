@@ -1,0 +1,14 @@
+{
+  "id": "game/male/game_male_ko_Alphonse_Neutral_ko",
+  "category": "game",
+  "gender": "male",
+  "speaker": "Alphonse",
+  "emotion": "Neutral",
+  "prompt_lang": "ko",
+  "target_lang": "ko",
+  "text": "혼자 떠나기엔 길이 험하구나. 이 낡은 검을 가져가거라. 언젠가 어둠이 네 이름을 부르더라도, 부디 빛을 잊지 말거라.",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Alphonse_Neutral_ko.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

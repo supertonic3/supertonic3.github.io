@@ -1,0 +1,14 @@
+{
+  "id": "news/male/news_male_ja_Isamu_Unfriendly_ja",
+  "category": "news",
+  "gender": "male",
+  "speaker": "Isamu",
+  "emotion": "Unfriendly",
+  "prompt_lang": "ja",
+  "target_lang": "ja",
+  "text": "皆さん、注目のニュースです。スーパートーンのオンデバイスTTSモデル、スーパートニック3が公開されました。今回のバージョンでは、対応言語が31言語に拡大し、読み上げの安定性も向上しています。",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Isamu_Unfriendly_ja.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "call-center/female/call-center_female_en_Nora_Neutral_en",
+  "category": "call-center",
+  "gender": "female",
+  "speaker": "Nora",
+  "emotion": "Neutral",
+  "prompt_lang": "en",
+  "target_lang": "en",
+  "text": "Good morning, thank you for calling. How can I help you today?",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Nora_Neutral_en.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

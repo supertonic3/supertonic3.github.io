@@ -1,0 +1,14 @@
+{
+  "id": "call-center/male/call-center_male_ko_Woojin_Neutral_en",
+  "category": "call-center",
+  "gender": "male",
+  "speaker": "Woojin",
+  "emotion": "Neutral",
+  "prompt_lang": "ko",
+  "target_lang": "en",
+  "text": "Thank you for calling Supertone Customer Support. This is Woojin speaking. How can I help you today?",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Woojin_Neutral_ko.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

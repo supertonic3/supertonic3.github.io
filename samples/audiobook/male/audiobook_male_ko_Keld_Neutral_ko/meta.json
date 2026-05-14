@@ -1,0 +1,14 @@
+{
+  "id": "audiobook/male/audiobook_male_ko_Keld_Neutral_ko",
+  "category": "audiobook",
+  "gender": "male",
+  "speaker": "Keld",
+  "emotion": "Neutral",
+  "prompt_lang": "ko",
+  "target_lang": "ko",
+  "text": "소년은 검을 뽑지 않았다. 대신 한 걸음 물러서서, 자신이 정말 지켜야 할 것이 무엇인지 처음으로 생각했다.",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Keld_Neutral_ko.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

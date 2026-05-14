@@ -1,0 +1,14 @@
+{
+  "id": "game/male/game_male_ko_Wayne_Neutral_en",
+  "category": "game",
+  "gender": "male",
+  "speaker": "Wayne",
+  "emotion": "Neutral",
+  "prompt_lang": "ko",
+  "target_lang": "en",
+  "text": "have crossed fire, blood, and ruin. If fate still demands a price, then let it come for me.",
+  "prompt_source": "/data/public/model/supertonic/tts/v1.7.3-opensource-sft-deploy/lang-group-N31-mergedv0_0_3/voice/Wayne_Neutral_ko.wav",
+  "models": {
+    "supertonic3": "supertonic3.wav"
+  }
+}

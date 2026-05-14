@@ -1,0 +1,1 @@
+Here’s a story worth paying attention to. Supertone has released Supertonic 3, its on-device TTS model. This version expands support to thirty-one languages and improves reading stability.
