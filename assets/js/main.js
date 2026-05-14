@@ -152,6 +152,8 @@
 
   // ---------- filter state ----------
   const state = { domain: "all", lang: "all", gender: "all" };
+  const INITIAL_SAMPLE_LIMIT = 6;
+  let samplesExpanded = false;
 
   // ---------- render: sample cards ----------
   const renderSampleCard = (sample, index) => {
@@ -224,6 +226,7 @@
   const renderSamples = () => {
     const grid = $("#samples-grid");
     const empty = $("#no-results");
+    const moreBtn = $("#sample-more");
     if (!grid) return;
 
     const filtered = (window.SAMPLES || []).filter((s) => {
@@ -237,12 +240,41 @@
     grid.innerHTML = "";
     if (filtered.length === 0) {
       empty.hidden = false;
+      if (moreBtn) moreBtn.hidden = true;
       return;
     }
     empty.hidden = true;
+    const shouldLimit = !samplesExpanded && filtered.length > INITIAL_SAMPLE_LIMIT;
+    const visibleSamples = shouldLimit ? filtered.slice(0, INITIAL_SAMPLE_LIMIT) : filtered;
+
     const frag = document.createDocumentFragment();
-    filtered.forEach((s, i) => frag.appendChild(renderSampleCard(s, i)));
+    visibleSamples.forEach((s, i) => frag.appendChild(renderSampleCard(s, i)));
     grid.appendChild(frag);
+
+    if (moreBtn) {
+      const hasMore = filtered.length > INITIAL_SAMPLE_LIMIT;
+      const remaining = Math.max(0, filtered.length - visibleSamples.length);
+      moreBtn.hidden = !hasMore;
+      if (samplesExpanded) {
+        moreBtn.textContent = "Show fewer samples";
+      } else {
+        moreBtn.textContent = `Show ${remaining} more ${remaining === 1 ? "sample" : "samples"}`;
+      }
+      moreBtn.setAttribute("aria-expanded", samplesExpanded ? "true" : "false");
+    }
+  };
+
+  const setupSampleMore = () => {
+    const moreBtn = $("#sample-more");
+    if (!moreBtn || moreBtn.dataset.bound === "true") return;
+    moreBtn.dataset.bound = "true";
+    moreBtn.addEventListener("click", () => {
+      samplesExpanded = !samplesExpanded;
+      renderSamples();
+      if (!samplesExpanded) {
+        $("#samples")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
   };
 
   // ---------- filter tab wiring ----------
@@ -253,6 +285,7 @@
 
     const select = (value) => {
       state[group] = value;
+      samplesExpanded = false;
       tabs.forEach((t) => {
         const selected = t.dataset.value === value;
         t.setAttribute("aria-selected", selected ? "true" : "false");
@@ -289,7 +322,7 @@
     const grid = $("#lang-grid");
     if (!grid) return;
     const list = window.LANGUAGES || [];
-    const TOTAL = 31;
+    grid.innerHTML = "";
     const frag = document.createDocumentFragment();
     list.forEach((name) => {
       const chip = document.createElement("div");
@@ -297,15 +330,6 @@
       chip.textContent = name;
       frag.appendChild(chip);
     });
-    // Fill the remaining slots with placeholders so the grid shape signals
-    // there's a full 31-language list to drop in.
-    const missing = Math.max(0, TOTAL - list.length);
-    for (let i = 0; i < missing; i++) {
-      const chip = document.createElement("div");
-      chip.className = "lang placeholder";
-      chip.textContent = `Language ${list.length + i + 1}`;
-      frag.appendChild(chip);
-    }
     grid.appendChild(frag);
   };
 
@@ -356,6 +380,7 @@
     setupFilterGroup("domain");
     setupFilterGroup("lang");
     setupFilterGroup("gender");
+    setupSampleMore();
     renderSamples();
     renderLanguageGrid();
     setupInstallTabs();
@@ -369,6 +394,7 @@
     setupFilterGroup("domain");
     setupFilterGroup("lang");
     setupFilterGroup("gender");
+    setupSampleMore();
     renderSamples();
     renderLanguageGrid();
     setupInstallTabs();

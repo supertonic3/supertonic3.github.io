@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Supertonic 3 — Lightning-Fast, On-Device, Multilingual TTS</title>
+  <title>Supertonic 3 — Lightning-Fast, Accurate, On-Device TTS</title>
   <meta name="description" content="Supertonic 3 is a 99M-parameter open-weight text-to-speech model from Supertone. Runs on CPU via ONNX Runtime. No GPU. No cloud. No API. 31 languages." />
   <meta name="theme-color" content="#F5E900" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Supertonic 3 — On-Device, Multilingual TTS" />
+  <meta property="og:title" content="Supertonic 3 — Accurate, On-Device, Multilingual TTS" />
   <meta property="og:description" content="99M-parameter open-weight TTS running locally on CPU. 31 languages. No GPU, no cloud, no API." />
   <meta property="og:image" content="https://github.com/supertone-inc/supertonic/raw/main/img/supertonic_preview_0.1.jpg" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Supertonic 3 — On-Device, Multilingual TTS" />
+  <meta name="twitter:title" content="Supertonic 3 — Accurate, On-Device, Multilingual TTS" />
   <meta name="twitter:description" content="99M-parameter open-weight TTS running locally on CPU. 31 languages." />
   <meta name="twitter:image" content="https://github.com/supertone-inc/supertonic/raw/main/img/supertonic_preview_0.1.jpg" />
 
@@ -58,7 +58,7 @@
             <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
           </svg>
         </button>
-        <a class="cta-link" href="https://huggingface.co/spaces/Supertone/supertonic-3" target="_blank" rel="noopener">Interactive Demo</a>
+        <a class="cta-link cta-demo" href="https://huggingface.co/spaces/Supertone/supertonic-3" target="_blank" rel="noopener" aria-label="Interactive Demo">Demo</a>
         <a class="cta-link" href="https://huggingface.co/Supertone/supertonic-3" target="_blank" rel="noopener">Models</a>
         <a class="cta-link" href="https://github.com/supertone-inc/supertonic" target="_blank" rel="noopener">GitHub</a>
         <button class="btn nav-toggle" aria-label="Open menu" aria-controls="mobile-menu" onclick="document.getElementById('mobile-menu').toggleAttribute('open')">
@@ -98,20 +98,34 @@
             <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> v3 · open weights · out now</div>
             <h1>
               <span class="hl">Supertonic 3</span><br/>
-              Lightning-Fast, On-Device,<br/>Multilingual TTS.
+              Lightning-Fast, Accurate,<br/>On-Device, Multilingual TTS.
             </h1>
             <p class="sub">
               A 99M-parameter open-weight text-to-speech model running locally on CPU via
               ONNX Runtime. No GPU. No cloud. No API.
             </p>
-            <div class="spec-chips">
-              <span class="chip mono">99M Params</span>
-              <span class="chip mono">31 Languages</span>
-              <span class="chip mono">CPU Only</span>
-              <span class="chip mono">ONNX Runtime</span>
-              <span class="chip mono">OpenRAIL-M</span>
-              <span class="chip mono">pip install supertonic</span>
+            <div class="hero-proof" aria-label="Benchmark summary">
+              <span class="proof-label">Benchmark note</span>
+              <span><strong>5.00× RTF</strong> on a 16-thread CPU, matching an 800M GPU baseline.</span>
             </div>
+            <dl class="hero-specs" aria-label="Supertonic 3 key specs">
+              <div>
+                <dt>Size</dt>
+                <dd>99M params</dd>
+              </div>
+              <div>
+                <dt>Coverage</dt>
+                <dd>31 languages</dd>
+              </div>
+              <div>
+                <dt>Runtime</dt>
+                <dd>CPU only</dd>
+              </div>
+              <div>
+                <dt>Format</dt>
+                <dd>ONNX Runtime</dd>
+              </div>
+            </dl>
             <div class="hero-actions">
               <a class="btn accent" href="https://huggingface.co/spaces/Supertone/supertonic-3" target="_blank" rel="noopener">
                 Try the Demo
@@ -121,23 +135,16 @@
                 <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.27-.01-1-.02-1.97-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.34.95.1-.74.4-1.24.73-1.53-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.9-.39s1.98.13 2.9.39c2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.11 3.05.73.8 1.18 1.83 1.18 3.09 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.67.8.56C20.21 21.38 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
                 View on GitHub
               </a>
-            </div>
-            <div class="hero-snippet">
-              <span class="prompt">$</span> pip install supertonic
-              <button class="copy-btn" data-copy-text="pip install supertonic" aria-label="Copy install command">
+              <button class="btn install-copy" data-copy-text="pip install supertonic" aria-label="Copy install command">
+                <span class="prompt">$</span>
+                <span>pip install supertonic</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12" aria-hidden="true">
                   <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
                 </svg>
-                Copy
               </button>
             </div>
           </div>
 
-        </div>
-
-        <div class="hero-banner-line" role="note">
-          <span class="badge">PARITY</span>
-          Same RTF as an 800M GPU model — on a 16-thread CPU.
         </div>
       </div>
     </section>
@@ -145,54 +152,68 @@
     <!-- ============================================================
          WHY SUPERTONIC 3
          ============================================================ -->
-    <section class="block" id="why">
+    <section class="block why-block" id="why">
       <div class="container">
-        <div class="section-head">
-          <div class="kicker">Why Supertonic 3</div>
-          <h2>Built to disappear into the device.</h2>
-          <p>Six things that make Supertonic 3 different from the rest of the open TTS landscape.</p>
-        </div>
-
-        <div class="feature-grid">
-          <div class="feature is-highlight">
-            <div class="icon-wrap" aria-hidden="true">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <h3>Tiny, but mighty</h3>
-            <p>99M parameters — 5–8× smaller than common open TTS baselines, with comparable naturalness at a fraction of the size.</p>
+        <div class="why-layout">
+          <div class="why-overview">
+            <div class="kicker">Why Supertonic 3</div>
+            <h2>Built for local speech generation.</h2>
+            <p>Six practical choices keep the model small, portable, and ready to run close to the user.</p>
+            <dl class="why-stats" aria-label="Supertonic 3 summary">
+              <div>
+                <dt>Model</dt>
+                <dd>99M</dd>
+              </div>
+              <div>
+                <dt>Languages</dt>
+                <dd>31</dd>
+              </div>
+              <div>
+                <dt>Runtime</dt>
+                <dd>CPU</dd>
+              </div>
+            </dl>
           </div>
 
-          <div class="feature">
-            <div class="icon-wrap" aria-hidden="true">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>
-            </div>
-            <h3>CPU-only inference</h3>
-            <p>No GPU required. Runs on laptops, phones, and edge devices. Your users keep their audio local.</p>
-          </div>
+          <div class="why-list">
+            <article class="why-item is-key">
+              <div class="why-index">01</div>
+              <div class="why-copy">
+                <h3>Tiny, but mighty</h3>
+                <p>99M parameters — 5–8× smaller than common open TTS baselines, with comparable naturalness at a fraction of the size.</p>
+              </div>
+            </article>
 
-          <div class="feature">
-            <div class="icon-wrap" aria-hidden="true">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
-            </div>
-            <h3>31 languages out of the box</h3>
-            <p>Single multilingual checkpoint. No per-language packs, no separate downloads.</p>
-          </div>
+            <article class="why-item">
+              <div class="why-index">02</div>
+              <div class="why-copy">
+                <h3>CPU-only inference</h3>
+                <p>No GPU required. Runs on laptops, phones, and edge devices, so users can keep audio local.</p>
+              </div>
+            </article>
 
-          <div class="feature">
-            <div class="icon-wrap" aria-hidden="true">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-            </div>
-            <h3>ONNX Runtime native</h3>
-            <p>First-class bindings for Python, Node, iOS, Android, C++, Rust, Go, Swift, Flutter, and the Web.</p>
-          </div>
+            <article class="why-item">
+              <div class="why-index">03</div>
+              <div class="why-copy">
+                <h3>31 languages out of the box</h3>
+                <p>Single multilingual checkpoint. No per-language packs, no separate downloads.</p>
+              </div>
+            </article>
 
-          <div class="feature code-card">
-            <div class="icon-wrap" aria-hidden="true">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-            </div>
-            <h3>One-line install</h3>
-            <p><code>pip install supertonic</code> — that's it. Here's a working snippet:</p>
-            <div class="code-block">
+            <article class="why-item">
+              <div class="why-index">04</div>
+              <div class="why-copy">
+                <h3>ONNX Runtime native</h3>
+                <p>First-class bindings for Python, Node, iOS, Android, C++, Rust, Go, Swift, Flutter, and the Web.</p>
+              </div>
+            </article>
+
+            <article class="why-item why-install">
+              <div class="why-index">05</div>
+              <div class="why-copy">
+                <h3>One-line install</h3>
+                <p><code>pip install supertonic</code> — that's it. Here's a working snippet:</p>
+                <div class="code-block">
 <pre><code><span class="tok-kw">from</span> supertonic <span class="tok-kw">import</span> TTS
 
 tts = TTS(auto_download=<span class="tok-kw">True</span>)
@@ -203,7 +224,7 @@ wav, duration = tts.<span class="tok-fn">synthesize</span>(
     lang=<span class="tok-str">"en"</span>,
 )
 tts.<span class="tok-fn">save_audio</span>(wav, <span class="tok-str">"output.wav"</span>)</code></pre>
-              <button class="copy-btn" data-copy-text='from supertonic import TTS
+                  <button class="copy-btn" data-copy-text='from supertonic import TTS
 
 tts = TTS(auto_download=True)
 style = tts.get_voice_style(voice_name="M1")
@@ -213,18 +234,20 @@ wav, duration = tts.synthesize(
     lang="en",
 )
 tts.save_audio(wav, "output.wav")' aria-label="Copy Python snippet">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-                Copy
-              </button>
-            </div>
-          </div>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    Copy
+                  </button>
+                </div>
+              </div>
+            </article>
 
-          <div class="feature">
-            <div class="icon-wrap" aria-hidden="true">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18"/><path d="M5 7l7-4 7 4"/><path d="M5 7v6"/><path d="M19 7v6"/><path d="M3 13h4"/><path d="M17 13h4"/><path d="M5 19l-2-6"/><path d="M19 19l2-6"/></svg>
-            </div>
-            <h3>Open weights, permissive code</h3>
-            <p>Model under OpenRAIL-M. Sample code under MIT. Use commercially, attribute fairly.</p>
+            <article class="why-item">
+              <div class="why-index">06</div>
+              <div class="why-copy">
+                <h3>Open weights, permissive code</h3>
+                <p>Model under OpenRAIL-M. Sample code under MIT. Use commercially, attribute fairly.</p>
+              </div>
+            </article>
           </div>
         </div>
       </div>
@@ -237,7 +260,7 @@ tts.save_audio(wav, "output.wav")' aria-label="Copy Python snippet">
       <div class="container">
         <div class="section-head samples-intro">
           <div class="kicker">Listening Samples</div>
-          <h2>Hear it next to the giants.</h2>
+          <h2>Compare the same voice prompts.</h2>
           <p>
             Every sample below shows the same input text spoken by three systems
             using the same reference voice prompt. <strong>Supertonic 3</strong> is
@@ -274,6 +297,9 @@ tts.save_audio(wav, "output.wav")' aria-label="Copy Python snippet">
 
         <div class="samples-grid" id="samples-grid" aria-live="polite">
           <!-- sample cards injected by main.js -->
+        </div>
+        <div class="sample-more-wrap">
+          <button class="btn sample-more" id="sample-more" type="button" aria-controls="samples-grid" hidden>Show more samples</button>
         </div>
         <p class="no-results" id="no-results" hidden>No samples match those filters.</p>
       </div>
@@ -370,13 +396,13 @@ tts.save_audio(wav, "output.wav")' aria-label="Copy Python snippet">
             <text x="180" y="46" text-anchor="end" font-size="13" fill="#F5F5F5" font-weight="600">Supertonic 3</text>
             <text x="180" y="61" text-anchor="end" font-size="10" fill="#8A8F98">CPU · 99M</text>
             <rect x="190" y="32" height="36" width="500" rx="6" fill="#F5E900"/>
-            <text x="700" y="55" text-anchor="end" font-size="13" fill="#050505" font-weight="700" font-family="JetBrains Mono, monospace">5.00×</text>
+            <text x="680" y="55" text-anchor="end" font-size="13" fill="#050505" font-weight="700" font-family="JetBrains Mono, monospace">5.00×</text>
 
             <!-- OmniVoice -->
             <text x="180" y="106" text-anchor="end" font-size="13" fill="#F5F5F5" font-weight="600">OmniVoice</text>
             <text x="180" y="121" text-anchor="end" font-size="10" fill="#8A8F98">GPU · 800M</text>
-            <rect x="190" y="92" height="36" width="511" rx="6" fill="#2F6BFF"/>
-            <text x="700" y="115" text-anchor="end" font-size="13" fill="#fff" font-weight="700" font-family="JetBrains Mono, monospace">5.11×</text>
+            <rect x="190" y="92" height="36" width="511" rx="6" fill="#6E7480"/>
+            <text x="690" y="115" text-anchor="end" font-size="13" fill="#F5F5F5" font-weight="700" font-family="JetBrains Mono, monospace">5.11×</text>
 
             <!-- Chatterbox -->
             <text x="180" y="166" text-anchor="end" font-size="13" fill="#F5F5F5" font-weight="600">Chatterbox</text>
@@ -410,7 +436,7 @@ tts.save_audio(wav, "output.wav")' aria-label="Copy Python snippet">
         <div class="section-head">
           <div class="kicker">Language Support</div>
           <h2>31 languages, one tiny model.</h2>
-          <p>Supertonic 3 is multilingual at the architecture level — there's no per-language pack to download and no language switch to throw. The samples above cover three of the 31 languages the model supports.</p>
+          <p>Supertonic 3 is multilingual at the architecture level — there's no per-language pack to download and no language switch to throw. The list below covers every supported language.</p>
         </div>
         <div class="lang-grid" id="lang-grid">
           <!-- chips injected by main.js -->
@@ -573,7 +599,6 @@ tts.save_audio(wav, "output.wav")' aria-label="Copy Python snippet">
       <div class="links">
         <a href="https://supertone.ai" target="_blank" rel="noopener">supertone.ai</a>
         <a href="https://supertone.ai/blog" target="_blank" rel="noopener">Blog</a>
-        <a href="https://supertone.ai/careers" target="_blank" rel="noopener">Careers</a>
         <a href="https://github.com/supertone-inc/supertonic" target="_blank" rel="noopener">GitHub</a>
         <a href="https://huggingface.co/Supertone/supertonic-3" target="_blank" rel="noopener">Hugging Face</a>
       </div>

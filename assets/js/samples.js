@@ -48,17 +48,39 @@ window.LANG_NAMES = {
   ko: "Korean",
 };
 
-// All 31 languages supported by Supertonic 3. The 3 in samples are filled in;
-// the rest is a placeholder for the team to drop the canonical list into.
-// // FILL IN: exact 31-language list (28 more entries below "Korean").
+// All 31 languages supported by Supertonic 3.
 window.LANGUAGES = [
   "English",
-  "Japanese",
   "Korean",
-  // // FILL IN: remaining 28 of the 31 supported languages, e.g.:
-  // "Mandarin Chinese", "Spanish", "French", "German", "Portuguese",
-  // "Russian", "Italian", "Dutch", "Polish", "Turkish", "Arabic",
-  // "Hindi", "Indonesian", "Vietnamese", "Thai", ...
+  "Japanese",
+  "Arabic",
+  "Bulgarian",
+  "Czech",
+  "Danish",
+  "German",
+  "Greek",
+  "Spanish",
+  "Estonian",
+  "Finnish",
+  "French",
+  "Hindi",
+  "Croatian",
+  "Hungarian",
+  "Indonesian",
+  "Italian",
+  "Lithuanian",
+  "Latvian",
+  "Dutch",
+  "Polish",
+  "Portuguese",
+  "Romanian",
+  "Russian",
+  "Slovak",
+  "Slovenian",
+  "Swedish",
+  "Turkish",
+  "Ukrainian",
+  "Vietnamese",
 ];
 
 // Domain order for filter tabs (matches the order felt natural in the corpus
