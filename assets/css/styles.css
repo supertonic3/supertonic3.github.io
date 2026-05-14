@@ -251,14 +251,16 @@ code, kbd, samp, pre { font-family: var(--font-mono); font-size: .92em; }
   gap: 10px;
   flex-shrink: 0;
 }
-.brand-mark {
-  width: 30px; height: 30px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--ink);
-  color: var(--accent);
+.brand-mark-img {
+  width: 30px;
+  height: 30px;
   border-radius: 7px;
+  flex-shrink: 0;
+  display: block;
+  /* Cropped slightly so the icon's transparent margins don't push the
+     wordmark away from the visual edge of the logo. */
+  object-fit: cover;
+  object-position: center;
 }
 .brand-word { display: inline-flex; align-items: baseline; gap: 4px; }
 .brand-num {
@@ -802,6 +804,17 @@ section.block {
   align-items: center;
 }
 .vb-body { min-width: 0; }
+.vb-logo {
+  /* Wide Supertonic wordmark logo. Gray glyphs on transparent — reads well
+     on the dark band. Capped small so it acts as a brand affordance, not
+     a decorative banner. */
+  height: clamp(22px, 2vw + 14px, 30px);
+  width: auto;
+  max-width: 260px;
+  display: block;
+  margin-bottom: 18px;
+  opacity: .92;
+}
 .vb-eyebrow {
   font-family: var(--font-mono);
   font-size: var(--t-kicker);
@@ -1148,6 +1161,21 @@ details.methodology li { margin-bottom: 4px; }
   align-items: center;
   font-size: .88rem;
   color: var(--muted);
+}
+.footer-built-by { display: inline-flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.footer-company {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-image: none;        /* override global underline-gradient on <a> */
+  padding-bottom: 0;
+}
+.footer-company:hover { text-decoration: underline; text-underline-offset: 3px; }
+.footer-company img {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  display: block;
 }
 .footer .links { display: flex; flex-wrap: wrap; gap: 16px; }
 

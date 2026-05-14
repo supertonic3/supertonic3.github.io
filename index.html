@@ -19,8 +19,10 @@
   <meta name="twitter:description" content="99M-parameter open-weight TTS running locally on CPU. 31 languages." />
   <meta name="twitter:image" content="https://github.com/supertone-inc/supertonic/raw/main/img/supertonic_preview_0.1.jpg" />
 
-  <!-- Favicon (inline SVG, no extra request) -->
+  <!-- Favicon: inline SVG stays crisp at tab sizes; PNG used for iOS home-screen. -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230B0C0E'/><path d='M9 21 L16 8 L23 21 L20 21 L16 14 L12 21 Z' fill='%23F5D90A'/></svg>" />
+  <link rel="alternate icon" type="image/png" href="assets/images/logo_square.png" />
+  <link rel="apple-touch-icon" href="assets/images/logo_square.png" />
 
   <!-- Fonts: Fraunces display serif, IBM Plex Sans body, IBM Plex Mono code -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -39,11 +41,7 @@
   <header class="header" role="banner">
     <div class="container header-inner">
       <a href="#top" class="brand" aria-label="Supertonic 3 home">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-            <path d="M3 12h2M7 7v10M11 4v16M15 8v8M19 11v2M21 12h0" />
-          </svg>
-        </span>
+        <img class="brand-mark-img" src="assets/images/logo_square.png" width="282" height="282" alt="" aria-hidden="true" fetchpriority="high" />
         <span class="brand-word" translate="no">Supertonic <span class="brand-num">3</span></span>
       </a>
       <nav class="nav" aria-label="Primary">
@@ -220,6 +218,7 @@
     <section class="vb-callout" aria-labelledby="vb-headline">
       <div class="container vb-inner">
         <div class="vb-body">
+          <img class="vb-logo" src="assets/images/logo_wide_supertonic.png" width="2382" height="282" alt="" aria-hidden="true" loading="lazy" />
           <div class="vb-eyebrow">Voice Builder</div>
           <h2 class="vb-headline" id="vb-headline">
             Want to hear <em>your own</em> voice?
@@ -506,8 +505,12 @@ tts.save_audio(wav, "output.wav")' aria-label="Copy Python snippet">
        ============================================================ -->
   <footer class="footer">
     <div class="container footer-inner">
-      <div>
-        Built by <a href="https://supertone.ai" target="_blank" rel="noopener">Supertone</a>.
+      <div class="footer-built-by">
+        Built by
+        <a href="https://supertone.ai" target="_blank" rel="noopener" class="footer-company">
+          <img src="assets/images/supertone_logo.png" width="48" height="48" alt="" aria-hidden="true" loading="lazy" />
+          <span translate="no">Supertone</span>
+        </a>.
         © <span id="year">2026</span>.
       </div>
       <div class="links">
