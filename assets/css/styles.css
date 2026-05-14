@@ -201,6 +201,66 @@ code, kbd, samp, pre { font-family: var(--font-mono); font-size: .92em; }
   display: inline-block;
 }
 
+/* Interactive chip variant: clicking copies its text to clipboard.
+   Visually a sibling of .chip but with extra affordance — leading $
+   prompt, trailing copy icon that brightens on hover, yellow flash on
+   the "copied" state (the global toast also fires). */
+.chip-copy {
+  font: inherit;                              /* reset <button> defaults */
+  font-family: var(--font-mono);
+  font-size: .76rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  padding: 6px 11px;
+  border-radius: var(--r-chip);
+  background: var(--card);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  white-space: nowrap;
+  line-height: 1.1;
+  transition:
+    background .15s ease,
+    border-color .15s ease,
+    color .15s ease,
+    transform .12s ease,
+    box-shadow .15s ease;
+}
+.chip-copy:hover {
+  border-color: rgba(11,12,14,.42);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(11,12,14,.06);
+}
+.chip-copy:active { transform: translateY(0); }
+.chip-copy .chip-prefix {
+  color: var(--accent-ink);
+  font-weight: 700;
+  background: var(--accent);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: .68rem;
+  line-height: 1;
+}
+.chip-copy .chip-copy-icon {
+  opacity: .42;
+  transition: opacity .15s ease;
+  flex-shrink: 0;
+}
+.chip-copy:hover .chip-copy-icon { opacity: 1; }
+.chip-copy.copied {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+.chip-copy.copied .chip-prefix {
+  background: var(--ink);
+  color: var(--accent);
+}
+.chip-copy.copied .chip-copy-icon { opacity: 1; }
+
 .btn {
   display: inline-flex;
   align-items: center;

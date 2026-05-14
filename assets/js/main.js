@@ -83,7 +83,7 @@
       return;
     }
     showToast("Copied!");
-    // Visual flash for copy-buttons inside code blocks
+    // Visual flash for copy-buttons inside code blocks (full innerHTML swap)…
     if (btn.classList.contains("copy-btn")) {
       const original = btn.innerHTML;
       btn.classList.add("copied");
@@ -92,6 +92,11 @@
         btn.classList.remove("copied");
         btn.innerHTML = original;
       }, 1400);
+    } else if (btn.classList.contains("chip-copy")) {
+      // …and a CSS-only yellow flash for the inline command chip so the
+      // label stays readable while it celebrates.
+      btn.classList.add("copied");
+      setTimeout(() => btn.classList.remove("copied"), 1400);
     }
   });
 
