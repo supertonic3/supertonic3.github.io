@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Supertonic 3 — Lightning-Fast, On-Device, Multilingual TTS</title>
   <meta name="description" content="Supertonic 3 is a 99M-parameter open-weight text-to-speech model from Supertone. Runs on CPU via ONNX Runtime. No GPU. No cloud. No API. 31 languages." />
-  <meta name="theme-color" content="#F5D90A" />
+  <meta name="theme-color" content="#F5E900" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -20,12 +20,14 @@
   <meta name="twitter:image" content="https://github.com/supertone-inc/supertonic/raw/main/img/supertonic_preview_0.1.jpg" />
 
   <!-- Favicon (inline SVG, no extra request) -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230B0C0E'/><path d='M9 21 L16 8 L23 21 L20 21 L16 14 L12 21 Z' fill='%23F5D90A'/></svg>" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23000000'/><path d='M9 21 L16 8 L23 21 L20 21 L16 14 L12 21 Z' fill='%23F5E900'/></svg>" />
 
   <!-- Fonts -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" />
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" />
 
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
@@ -36,9 +38,9 @@
        ============================================================ -->
   <header class="header" role="banner">
     <div class="container header-inner">
-      <a href="#top" class="brand" aria-label="Supertonic 3 home">
+      <a href="#top" class="brand" aria-label="Supertone supertonic-3 home">
         <span class="dot" aria-hidden="true"></span>
-        Supertonic <span style="color:var(--muted);font-weight:600;">3</span>
+        Supertone <span class="brand-product">/ supertonic-3</span>
       </a>
       <nav class="nav" aria-label="Primary">
         <a href="#overview">Overview</a>
@@ -92,7 +94,7 @@
     <section class="hero" id="overview">
       <div class="container">
         <div class="hero-grid">
-          <div>
+          <div class="hero-copy">
             <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> v3 · open weights · out now</div>
             <h1>
               <span class="hl">Supertonic 3</span><br/>
@@ -131,11 +133,6 @@
             </div>
           </div>
 
-          <div class="hero-img-wrap">
-            <img src="https://github.com/supertone-inc/supertonic/raw/main/img/supertonic_preview_0.1.jpg"
-                 alt="Supertonic preview artwork — a stylized waveform on a dark background."
-                 width="1200" height="900" loading="eager" decoding="async" />
-          </div>
         </div>
 
         <div class="hero-banner-line" role="note">
@@ -366,26 +363,26 @@ tts.save_audio(wav, "output.wav")' aria-label="Copy Python snippet">
           <!-- Inline SVG bar chart. Width: 100%. ViewBox keeps it crisp at any size. -->
           <svg viewBox="0 0 720 220" role="img" aria-label="Bar chart: Supertonic 3 5.00x, OmniVoice 5.11x, Chatterbox 1.27x">
             <!-- baseline axis -->
-            <line x1="190" y1="20" x2="190" y2="200" stroke="#E6E7EB" stroke-width="1"/>
-            <line x1="190" y1="200" x2="700" y2="200" stroke="#E6E7EB" stroke-width="1"/>
+            <line x1="190" y1="20" x2="190" y2="200" stroke="#30333A" stroke-width="1"/>
+            <line x1="190" y1="200" x2="700" y2="200" stroke="#30333A" stroke-width="1"/>
 
             <!-- Supertonic 3 -->
-            <text x="180" y="46" text-anchor="end" font-size="13" fill="#0B0C0E" font-weight="600">Supertonic 3</text>
-            <text x="180" y="61" text-anchor="end" font-size="10" fill="#5C6068">CPU · 99M</text>
-            <rect x="190" y="32" height="36" width="500" rx="6" fill="#F5D90A"/>
-            <text x="700" y="55" text-anchor="end" font-size="13" fill="#0B0C0E" font-weight="700" font-family="JetBrains Mono, monospace">5.00×</text>
+            <text x="180" y="46" text-anchor="end" font-size="13" fill="#F5F5F5" font-weight="600">Supertonic 3</text>
+            <text x="180" y="61" text-anchor="end" font-size="10" fill="#8A8F98">CPU · 99M</text>
+            <rect x="190" y="32" height="36" width="500" rx="6" fill="#F5E900"/>
+            <text x="700" y="55" text-anchor="end" font-size="13" fill="#050505" font-weight="700" font-family="JetBrains Mono, monospace">5.00×</text>
 
             <!-- OmniVoice -->
-            <text x="180" y="106" text-anchor="end" font-size="13" fill="#0B0C0E" font-weight="600">OmniVoice</text>
-            <text x="180" y="121" text-anchor="end" font-size="10" fill="#5C6068">GPU · 800M</text>
-            <rect x="190" y="92" height="36" width="511" rx="6" fill="#9aa0aa"/>
+            <text x="180" y="106" text-anchor="end" font-size="13" fill="#F5F5F5" font-weight="600">OmniVoice</text>
+            <text x="180" y="121" text-anchor="end" font-size="10" fill="#8A8F98">GPU · 800M</text>
+            <rect x="190" y="92" height="36" width="511" rx="6" fill="#2F6BFF"/>
             <text x="700" y="115" text-anchor="end" font-size="13" fill="#fff" font-weight="700" font-family="JetBrains Mono, monospace">5.11×</text>
 
             <!-- Chatterbox -->
-            <text x="180" y="166" text-anchor="end" font-size="13" fill="#0B0C0E" font-weight="600">Chatterbox</text>
-            <text x="180" y="181" text-anchor="end" font-size="10" fill="#5C6068">GPU · 500M</text>
-            <rect x="190" y="152" height="36" width="127" rx="6" fill="#c8ccd2"/>
-            <text x="324" y="175" font-size="13" fill="#0B0C0E" font-weight="700" font-family="JetBrains Mono, monospace">1.27×</text>
+            <text x="180" y="166" text-anchor="end" font-size="13" fill="#F5F5F5" font-weight="600">Chatterbox</text>
+            <text x="180" y="181" text-anchor="end" font-size="10" fill="#8A8F98">GPU · 500M</text>
+            <rect x="190" y="152" height="36" width="127" rx="6" fill="#555A64"/>
+            <text x="324" y="175" font-size="13" fill="#F5F5F5" font-weight="700" font-family="JetBrains Mono, monospace">1.27×</text>
           </svg>
         </div>
 
