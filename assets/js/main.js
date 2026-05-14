@@ -131,10 +131,17 @@
   };
 
   // ---------- render: language filter chips (only langs in actual samples) ----------
+  // Order matches LANG_PRIORITY (en → ko → ja), then any others alphabetically.
   const renderLangChips = () => {
     const row = document.querySelector('[data-filter-group="lang"]');
     if (!row) return;
-    const langs = Array.from(new Set((window.SAMPLES || []).map((s) => s.target_lang))).sort();
+    const priority = window.LANG_PRIORITY || {};
+    const langs = Array.from(new Set((window.SAMPLES || []).map((s) => s.target_lang)));
+    langs.sort((a, b) => {
+      const pa = a in priority ? priority[a] : 999;
+      const pb = b in priority ? priority[b] : 999;
+      return pa - pb || a.localeCompare(b);
+    });
     const names = window.LANG_NAMES || {};
     const frag = document.createDocumentFragment();
     langs.forEach((l) => {
@@ -226,13 +233,25 @@
     const empty = $("#no-results");
     if (!grid) return;
 
-    const filtered = (window.SAMPLES || []).filter((s) => {
-      return (
+    const all = window.SAMPLES || [];
+    const priority = window.LANG_PRIORITY || {};
+
+    // Filter, then sort by language priority (en → ko → ja). Original-index
+    // tiebreaker preserves the manifest order within a single language so
+    // the data source remains canonical and editors can predict the output.
+    const filtered = all
+      .map((s, idx) => ({ s, idx }))
+      .filter(({ s }) => (
         (state.domain === "all" || s.domain === state.domain) &&
         (state.lang   === "all" || s.target_lang === state.lang) &&
         (state.gender === "all" || s.gender === state.gender)
-      );
-    });
+      ))
+      .sort((a, b) => {
+        const pa = a.s.target_lang in priority ? priority[a.s.target_lang] : 999;
+        const pb = b.s.target_lang in priority ? priority[b.s.target_lang] : 999;
+        return pa - pb || a.idx - b.idx;
+      })
+      .map(({ s }) => s);
 
     grid.innerHTML = "";
     if (filtered.length === 0) {
@@ -285,27 +304,29 @@
   };
 
   // ---------- render: 31-language grid ----------
+  // Each entry is { name, code, hasSamples }. hasSamples adds an accent
+  // border + matching code-chip, and the section legend explains why.
   const renderLanguageGrid = () => {
     const grid = $("#lang-grid");
     if (!grid) return;
     const list = window.LANGUAGES || [];
-    const TOTAL = 31;
     const frag = document.createDocumentFragment();
-    list.forEach((name) => {
-      const chip = document.createElement("div");
-      chip.className = "lang";
-      chip.textContent = name;
-      frag.appendChild(chip);
+    list.forEach((lang) => {
+      const li = document.createElement("li");
+      li.className = "lang" + (lang.hasSamples ? " has-samples" : "");
+      li.setAttribute("title", `${lang.name} (${lang.code})`);
+      li.setAttribute("aria-label", `${lang.name}, ISO code ${lang.code}` + (lang.hasSamples ? ", has audio samples below" : ""));
+      const name = document.createElement("span");
+      name.className = "lang-name";
+      name.textContent = lang.name;
+      const code = document.createElement("span");
+      code.className = "lang-code";
+      code.textContent = lang.code;
+      code.setAttribute("aria-hidden", "true");
+      li.appendChild(name);
+      li.appendChild(code);
+      frag.appendChild(li);
     });
-    // Fill the remaining slots with placeholders so the grid shape signals
-    // there's a full 31-language list to drop in.
-    const missing = Math.max(0, TOTAL - list.length);
-    for (let i = 0; i < missing; i++) {
-      const chip = document.createElement("div");
-      chip.className = "lang placeholder";
-      chip.textContent = `Language ${list.length + i + 1}`;
-      frag.appendChild(chip);
-    }
     grid.appendChild(frag);
   };
 

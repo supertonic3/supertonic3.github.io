@@ -48,17 +48,46 @@ window.LANG_NAMES = {
   ko: "Korean",
 };
 
-// All 31 languages supported by Supertonic 3. The 3 in samples are filled in;
-// the rest is a placeholder for the team to drop the canonical list into.
-// // FILL IN: exact 31-language list (28 more entries below "Korean").
+// Render-time sort priority for the listening-samples grid. English first
+// (broadest audience), then Korean and Japanese (the other demoed langs).
+// All other languages sort after. Used by main.js renderSamples.
+window.LANG_PRIORITY = { en: 0, ko: 1, ja: 2 };
+
+// All 31 languages supported by Supertonic 3.
+// `hasSamples: true` flags the languages with audio on this page — these
+// chips get an accent border in the 31-language grid.
 window.LANGUAGES = [
-  "English",
-  "Japanese",
-  "Korean",
-  // // FILL IN: remaining 28 of the 31 supported languages, e.g.:
-  // "Mandarin Chinese", "Spanish", "French", "German", "Portuguese",
-  // "Russian", "Italian", "Dutch", "Polish", "Turkish", "Arabic",
-  // "Hindi", "Indonesian", "Vietnamese", "Thai", ...
+  { name: "English",     code: "en", hasSamples: true  },
+  { name: "Korean",      code: "ko", hasSamples: true  },
+  { name: "Japanese",    code: "ja", hasSamples: true  },
+  { name: "Arabic",      code: "ar", hasSamples: false },
+  { name: "Bulgarian",   code: "bg", hasSamples: false },
+  { name: "Croatian",    code: "hr", hasSamples: false },
+  { name: "Czech",       code: "cs", hasSamples: false },
+  { name: "Danish",      code: "da", hasSamples: false },
+  { name: "Dutch",       code: "nl", hasSamples: false },
+  { name: "Estonian",    code: "et", hasSamples: false },
+  { name: "Finnish",     code: "fi", hasSamples: false },
+  { name: "French",      code: "fr", hasSamples: false },
+  { name: "German",      code: "de", hasSamples: false },
+  { name: "Greek",       code: "el", hasSamples: false },
+  { name: "Hindi",       code: "hi", hasSamples: false },
+  { name: "Hungarian",   code: "hu", hasSamples: false },
+  { name: "Indonesian",  code: "id", hasSamples: false },
+  { name: "Italian",     code: "it", hasSamples: false },
+  { name: "Latvian",     code: "lv", hasSamples: false },
+  { name: "Lithuanian",  code: "lt", hasSamples: false },
+  { name: "Polish",      code: "pl", hasSamples: false },
+  { name: "Portuguese",  code: "pt", hasSamples: false },
+  { name: "Romanian",    code: "ro", hasSamples: false },
+  { name: "Russian",     code: "ru", hasSamples: false },
+  { name: "Slovak",      code: "sk", hasSamples: false },
+  { name: "Slovenian",   code: "sl", hasSamples: false },
+  { name: "Spanish",     code: "es", hasSamples: false },
+  { name: "Swedish",     code: "sv", hasSamples: false },
+  { name: "Turkish",     code: "tr", hasSamples: false },
+  { name: "Ukrainian",   code: "uk", hasSamples: false },
+  { name: "Vietnamese",  code: "vi", hasSamples: false },
 ];
 
 // Domain order for filter tabs (matches the order felt natural in the corpus
