@@ -65,7 +65,7 @@
         <a class="cta-link gh" href="https://github.com/supertone-inc/supertonic" target="_blank" rel="noopener" aria-label="GitHub repository">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.27-.01-1-.02-1.97-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.34.95.1-.74.4-1.24.73-1.53-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.9-.39s1.98.13 2.9.39c2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.11 3.05.73.8 1.18 1.83 1.18 3.09 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.67.8.56C20.21 21.38 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
         </a>
-        <button class="btn nav-toggle" aria-label="Open menu" aria-controls="mobile-menu" onclick="document.getElementById('mobile-menu').toggleAttribute('open')">
+        <button class="btn nav-toggle" type="button" aria-label="Open menu" aria-controls="mobile-menu" onclick="document.getElementById('mobile-menu').toggleAttribute('open')">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
           </svg>
@@ -97,9 +97,10 @@
   <main id="top">
     <section class="hero" id="overview">
       <div class="container hero-inner">
-        <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> v3 · open weights · out now</div>
+        <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> <span translate="no">Supertonic&nbsp;3</span> · open weights · out now</div>
 
         <h1 class="hero-headline">
+          <span class="line line-prefix" translate="no">Supertonic&nbsp;3:</span>
           <span class="line">Lightning-Fast,</span>
           <span class="line">On-Device,</span>
           <span class="line"><em class="hero-italic">Multilingual</em> <span translate="no">TTS</span>.</span>
@@ -223,12 +224,12 @@
           <h2 class="section-title">Hear it next to the giants.</h2>
           <p class="section-sub">
             Same input text, same reference voice prompt, three systems.
-            <strong>Supertonic 3</strong> is ours — 99M params on CPU.
+            <strong translate="no">Supertonic&nbsp;3</strong> is ours — 99M params on CPU.
             <strong>OmniVoice</strong> and <strong>Chatterbox Multilingual</strong>
             are 5–8× larger and run on a GPU.
           </p>
           <div class="legend">
-            <span class="legend-item"><span class="swatch" style="background:var(--accent)"></span> Supertonic 3 (ours, 99M · CPU)</span>
+            <span class="legend-item"><span class="swatch" style="background:var(--accent)"></span> <span translate="no">Supertonic&nbsp;3</span> (ours, 99M · CPU)</span>
             <span class="legend-item"><span class="swatch swatch-neutral"></span> Chatterbox Multilingual (500M · GPU)</span>
             <span class="legend-item"><span class="swatch swatch-neutral"></span> OmniVoice (800M · GPU)</span>
             <span class="legend-item"><span class="swatch" style="background:var(--info)"></span> Reference prompt voice</span>
@@ -238,19 +239,19 @@
         <div class="filter-bar" role="region" aria-label="Sample filters">
           <div class="filter-row" role="tablist" aria-label="Filter by domain" data-filter-group="domain">
             <span class="filter-label">Domain</span>
-            <button class="tab" role="tab" aria-selected="true" data-value="all" tabindex="0">All</button>
+            <button class="tab" type="button" role="tab" aria-selected="true" data-value="all" tabindex="0">All</button>
             <!-- domain tabs populated by main.js -->
           </div>
           <div class="filter-row" role="tablist" aria-label="Filter by target language" data-filter-group="lang">
             <span class="filter-label">Language</span>
-            <button class="tab chip-tab" role="tab" aria-selected="true" data-value="all" tabindex="0">All</button>
+            <button class="tab chip-tab" type="button" role="tab" aria-selected="true" data-value="all" tabindex="0">All</button>
             <!-- language chips populated by main.js, in en → ko → ja order -->
           </div>
           <div class="filter-row" role="tablist" aria-label="Filter by gender" data-filter-group="gender">
             <span class="filter-label">Gender</span>
-            <button class="tab chip-tab" role="tab" aria-selected="true" data-value="all" tabindex="0">All</button>
-            <button class="tab chip-tab" role="tab" aria-selected="false" data-value="female" tabindex="-1">Female</button>
-            <button class="tab chip-tab" role="tab" aria-selected="false" data-value="male" tabindex="-1">Male</button>
+            <button class="tab chip-tab" type="button" role="tab" aria-selected="true" data-value="all" tabindex="0">All</button>
+            <button class="tab chip-tab" type="button" role="tab" aria-selected="false" data-value="female" tabindex="-1">Female</button>
+            <button class="tab chip-tab" type="button" role="tab" aria-selected="false" data-value="male" tabindex="-1">Male</button>
           </div>
         </div>
 
@@ -274,10 +275,10 @@
           </h2>
           <p class="vb-text">
             Supertonic supports zero-shot voice cloning in
-            <a href="https://supertonic.supertone.ai/voice_builder" target="_blank" rel="noopener">Voice Builder</a>
+            <a href="https://supertonic.supertone.ai/voice_builder" target="_blank" rel="noopener" translate="no">Voice&nbsp;Builder</a>
             — record or upload a short reference and synthesize across 31 languages.
           </p>
-          <div class="vb-status" role="status">
+          <div class="vb-status">
             <span class="vb-status-pill" translate="no">Rollout</span>
             <span class="vb-status-text">
               Voice Builder currently runs on <strong translate="no">Supertonic&nbsp;2</strong>.
@@ -303,7 +304,7 @@
         <div class="section-head">
           <div class="kicker">Speed benchmark</div>
           <h2 class="section-title">GPU-class speed <em>without</em> a GPU.</h2>
-          <p class="section-sub">RTF (real-time factor) measures how long synthesis takes per second of audio — lower is faster. ×RT is the inverse. Supertonic 3 reaches parity with an 800M-parameter GPU baseline while running on a 16-thread CPU.</p>
+          <p class="section-sub">RTF (real-time factor) measures how long synthesis takes per second of audio — lower is faster. ×RT is the inverse. <span translate="no">Supertonic&nbsp;3</span> reaches parity with an 800M-parameter GPU baseline while running on a 16-thread CPU.</p>
           <span class="bench-pill">N = 30 · same machine, same text, same reference voices</span>
         </div>
 
@@ -426,12 +427,12 @@
         </div>
 
         <div class="install-tabs" role="tablist" aria-label="Quickstart language">
-          <button class="install-tab" role="tab" aria-selected="true"  data-panel="py"      tabindex="0">Python</button>
-          <button class="install-tab" role="tab" aria-selected="false" data-panel="node"    tabindex="-1">Node.js</button>
-          <button class="install-tab" role="tab" aria-selected="false" data-panel="web"     tabindex="-1">Web</button>
-          <button class="install-tab" role="tab" aria-selected="false" data-panel="ios"     tabindex="-1">iOS</button>
-          <button class="install-tab" role="tab" aria-selected="false" data-panel="android" tabindex="-1">Android</button>
-          <button class="install-tab" role="tab" aria-selected="false" data-panel="cpp"     tabindex="-1">C++</button>
+          <button class="install-tab" type="button" role="tab" aria-selected="true"  data-panel="py"      tabindex="0">Python</button>
+          <button class="install-tab" type="button" role="tab" aria-selected="false" data-panel="node"    tabindex="-1">Node.js</button>
+          <button class="install-tab" type="button" role="tab" aria-selected="false" data-panel="web"     tabindex="-1">Web</button>
+          <button class="install-tab" type="button" role="tab" aria-selected="false" data-panel="ios"     tabindex="-1">iOS</button>
+          <button class="install-tab" type="button" role="tab" aria-selected="false" data-panel="android" tabindex="-1">Android</button>
+          <button class="install-tab" type="button" role="tab" aria-selected="false" data-panel="cpp"     tabindex="-1">C++</button>
         </div>
 
         <div class="install-panel active" data-panel="py" role="tabpanel">

@@ -452,6 +452,18 @@ details.mobile-menu { display: none; }
   max-width: 18ch;
 }
 .hero-headline .line { display: block; }
+/* Magazine kicker: the brand name acts as a label/title above the
+   3-line tagline. Same Fraunces family, sized ~30% of the display so it
+   registers identity without competing with the big lines. */
+.hero-headline .line-prefix {
+  font-size: clamp(.95rem, 1.4vw + 0.4rem, 1.5rem);
+  font-variation-settings: "opsz" 36, "SOFT" 30;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--muted);
+  line-height: 1.15;
+  margin-bottom: clamp(8px, 1vw, 14px);
+}
 .hero-italic {
   font-style: italic;
   font-weight: 500;

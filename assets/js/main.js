@@ -124,6 +124,7 @@
     const frag = document.createDocumentFragment();
     domains.forEach((d) => {
       const btn = document.createElement("button");
+      btn.type = "button";
       btn.className = "tab";
       btn.setAttribute("role", "tab");
       btn.setAttribute("aria-selected", "false");
@@ -151,6 +152,7 @@
     const frag = document.createDocumentFragment();
     langs.forEach((l) => {
       const btn = document.createElement("button");
+      btn.type = "button";
       btn.className = "tab chip-tab";
       btn.setAttribute("role", "tab");
       btn.setAttribute("aria-selected", "false");
