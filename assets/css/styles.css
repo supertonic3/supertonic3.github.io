@@ -436,6 +436,28 @@ details.mobile-menu { display: none; }
   margin: 0;
   line-height: 1.4;
 }
+/* Rollout-status note under a hero CTA helper line. Mono + tiny so it
+   reads as a sibling caveat, not a competing message. */
+.action-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  letter-spacing: .01em;
+  color: var(--ink-soft);
+  margin: 2px 0 0;
+  padding: 0;
+  line-height: 1.5;
+}
+.action-note .note-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(245,217,10,.22);
+  flex-shrink: 0;
+}
 @media (max-width: 640px) {
   .hero-actions { grid-template-columns: 1fr; }
   .hero-actions .action { max-width: none; }
@@ -855,6 +877,42 @@ section.block {
 }
 .vb-text a:hover { background-size: 100% 8px; }
 .vb-btn { flex-shrink: 0; }
+/* Rollout status row inside the Voice Builder band. Sits below vb-text,
+   surfaces the current Supertonic 2 → 3 transition so the CTA doesn't
+   set the wrong expectation. */
+.vb-status {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: clamp(14px, 1.5vw, 20px);
+  padding: 10px 14px;
+  background: rgba(245, 217, 10, .08);
+  border: 1px solid rgba(245, 217, 10, .35);
+  border-radius: 10px;
+  max-width: 64ch;
+  line-height: 1.5;
+}
+.vb-status-pill {
+  font-family: var(--font-mono);
+  font-size: .65rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.vb-status-text {
+  font-size: .9rem;
+  color: rgba(255, 255, 255, .9);
+}
+.vb-status-text strong {
+  color: #fff;
+  font-weight: 600;
+}
 @media (max-width: 720px) {
   .vb-inner { grid-template-columns: 1fr; }
 }
