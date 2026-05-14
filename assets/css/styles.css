@@ -436,27 +436,25 @@ details.mobile-menu { display: none; }
   margin: 0;
   line-height: 1.4;
 }
-/* Rollout-status note under a hero CTA helper line. Mono + tiny so it
-   reads as a sibling caveat, not a competing message. */
+/* Rollout-status caveat under a hero CTA helper line. Typographically
+   a sibling of .action-helper: same UI font, same muted color, just a
+   touch smaller. A pseudo-element dot baseline-aligns naturally on the
+   first wrapped line — no flex misalignment when the text wraps. */
 .action-note {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: .7rem;
-  letter-spacing: .01em;
-  color: var(--ink-soft);
-  margin: 2px 0 0;
-  padding: 0;
-  line-height: 1.5;
+  font-size: .78rem;
+  color: var(--muted);
+  margin: 4px 0 0;
+  line-height: 1.45;
 }
-.action-note .note-dot {
-  width: 7px;
-  height: 7px;
+.action-note::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 0 3px rgba(245,217,10,.22);
-  flex-shrink: 0;
+  margin-right: 7px;
+  vertical-align: 1.5px;
 }
 @media (max-width: 640px) {
   .hero-actions { grid-template-columns: 1fr; }
