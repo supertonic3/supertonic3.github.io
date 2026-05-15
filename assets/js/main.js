@@ -83,7 +83,7 @@
       return;
     }
     showToast("Copied!");
-    // Visual flash for copy-buttons inside code blocks
+    // Visual flash for copy-buttons inside code blocks (full innerHTML swap)…
     if (btn.classList.contains("copy-btn")) {
       const original = btn.innerHTML;
       btn.classList.add("copied");
@@ -92,6 +92,11 @@
         btn.classList.remove("copied");
         btn.innerHTML = original;
       }, 1400);
+    } else if (btn.classList.contains("chip-copy")) {
+      // …and a CSS-only yellow flash for the inline command chip so the
+      // label stays readable while it celebrates.
+      btn.classList.add("copied");
+      setTimeout(() => btn.classList.remove("copied"), 1400);
     }
   });
 
@@ -119,6 +124,7 @@
     const frag = document.createDocumentFragment();
     domains.forEach((d) => {
       const btn = document.createElement("button");
+      btn.type = "button";
       btn.className = "tab";
       btn.setAttribute("role", "tab");
       btn.setAttribute("aria-selected", "false");
@@ -131,14 +137,22 @@
   };
 
   // ---------- render: language filter chips (only langs in actual samples) ----------
+  // Order matches LANG_PRIORITY (en → ko → ja), then any others alphabetically.
   const renderLangChips = () => {
     const row = document.querySelector('[data-filter-group="lang"]');
     if (!row) return;
-    const langs = Array.from(new Set((window.SAMPLES || []).map((s) => s.target_lang))).sort();
+    const priority = window.LANG_PRIORITY || {};
+    const langs = Array.from(new Set((window.SAMPLES || []).map((s) => s.target_lang)));
+    langs.sort((a, b) => {
+      const pa = a in priority ? priority[a] : 999;
+      const pb = b in priority ? priority[b] : 999;
+      return pa - pb || a.localeCompare(b);
+    });
     const names = window.LANG_NAMES || {};
     const frag = document.createDocumentFragment();
     langs.forEach((l) => {
       const btn = document.createElement("button");
+      btn.type = "button";
       btn.className = "tab chip-tab";
       btn.setAttribute("role", "tab");
       btn.setAttribute("aria-selected", "false");
@@ -152,8 +166,6 @@
 
   // ---------- filter state ----------
   const state = { domain: "all", lang: "all", gender: "all" };
-  const INITIAL_SAMPLE_LIMIT = 6;
-  let samplesExpanded = false;
 
   // ---------- render: sample cards ----------
   const renderSampleCard = (sample, index) => {
@@ -226,55 +238,37 @@
   const renderSamples = () => {
     const grid = $("#samples-grid");
     const empty = $("#no-results");
-    const moreBtn = $("#sample-more");
     if (!grid) return;
 
-    const filtered = (window.SAMPLES || []).filter((s) => {
-      return (
+    const all = window.SAMPLES || [];
+    const priority = window.LANG_PRIORITY || {};
+
+    // Filter, then sort by language priority (en → ko → ja). Original-index
+    // tiebreaker preserves the manifest order within a single language so
+    // the data source remains canonical and editors can predict the output.
+    const filtered = all
+      .map((s, idx) => ({ s, idx }))
+      .filter(({ s }) => (
         (state.domain === "all" || s.domain === state.domain) &&
         (state.lang   === "all" || s.target_lang === state.lang) &&
         (state.gender === "all" || s.gender === state.gender)
-      );
-    });
+      ))
+      .sort((a, b) => {
+        const pa = a.s.target_lang in priority ? priority[a.s.target_lang] : 999;
+        const pb = b.s.target_lang in priority ? priority[b.s.target_lang] : 999;
+        return pa - pb || a.idx - b.idx;
+      })
+      .map(({ s }) => s);
 
     grid.innerHTML = "";
     if (filtered.length === 0) {
       empty.hidden = false;
-      if (moreBtn) moreBtn.hidden = true;
       return;
     }
     empty.hidden = true;
-    const shouldLimit = !samplesExpanded && filtered.length > INITIAL_SAMPLE_LIMIT;
-    const visibleSamples = shouldLimit ? filtered.slice(0, INITIAL_SAMPLE_LIMIT) : filtered;
-
     const frag = document.createDocumentFragment();
-    visibleSamples.forEach((s, i) => frag.appendChild(renderSampleCard(s, i)));
+    filtered.forEach((s, i) => frag.appendChild(renderSampleCard(s, i)));
     grid.appendChild(frag);
-
-    if (moreBtn) {
-      const hasMore = filtered.length > INITIAL_SAMPLE_LIMIT;
-      const remaining = Math.max(0, filtered.length - visibleSamples.length);
-      moreBtn.hidden = !hasMore;
-      if (samplesExpanded) {
-        moreBtn.textContent = "Show fewer samples";
-      } else {
-        moreBtn.textContent = `Show ${remaining} more ${remaining === 1 ? "sample" : "samples"}`;
-      }
-      moreBtn.setAttribute("aria-expanded", samplesExpanded ? "true" : "false");
-    }
-  };
-
-  const setupSampleMore = () => {
-    const moreBtn = $("#sample-more");
-    if (!moreBtn || moreBtn.dataset.bound === "true") return;
-    moreBtn.dataset.bound = "true";
-    moreBtn.addEventListener("click", () => {
-      samplesExpanded = !samplesExpanded;
-      renderSamples();
-      if (!samplesExpanded) {
-        $("#samples")?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    });
   };
 
   // ---------- filter tab wiring ----------
@@ -285,7 +279,6 @@
 
     const select = (value) => {
       state[group] = value;
-      samplesExpanded = false;
       tabs.forEach((t) => {
         const selected = t.dataset.value === value;
         t.setAttribute("aria-selected", selected ? "true" : "false");
@@ -318,17 +311,28 @@
   };
 
   // ---------- render: 31-language grid ----------
+  // Each entry is { name, code, hasSamples }. hasSamples adds an accent
+  // border + matching code-chip, and the section legend explains why.
   const renderLanguageGrid = () => {
     const grid = $("#lang-grid");
     if (!grid) return;
     const list = window.LANGUAGES || [];
-    grid.innerHTML = "";
     const frag = document.createDocumentFragment();
-    list.forEach((name) => {
-      const chip = document.createElement("div");
-      chip.className = "lang";
-      chip.textContent = name;
-      frag.appendChild(chip);
+    list.forEach((lang) => {
+      const li = document.createElement("li");
+      li.className = "lang" + (lang.hasSamples ? " has-samples" : "");
+      li.setAttribute("title", `${lang.name} (${lang.code})`);
+      li.setAttribute("aria-label", `${lang.name}, ISO code ${lang.code}` + (lang.hasSamples ? ", has audio samples below" : ""));
+      const name = document.createElement("span");
+      name.className = "lang-name";
+      name.textContent = lang.name;
+      const code = document.createElement("span");
+      code.className = "lang-code";
+      code.textContent = lang.code;
+      code.setAttribute("aria-hidden", "true");
+      li.appendChild(name);
+      li.appendChild(code);
+      frag.appendChild(li);
     });
     grid.appendChild(frag);
   };
@@ -380,7 +384,6 @@
     setupFilterGroup("domain");
     setupFilterGroup("lang");
     setupFilterGroup("gender");
-    setupSampleMore();
     renderSamples();
     renderLanguageGrid();
     setupInstallTabs();
@@ -394,7 +397,6 @@
     setupFilterGroup("domain");
     setupFilterGroup("lang");
     setupFilterGroup("gender");
-    setupSampleMore();
     renderSamples();
     renderLanguageGrid();
     setupInstallTabs();
