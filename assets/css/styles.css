@@ -1,41 +1,39 @@
 /* ============================================================
- * Supertonic 3 — editorial-technical hybrid
- * Hand-rolled, no framework. Variable Fraunces for display, IBM Plex
- * for body/mono. Continuous reflow via clamp() + container queries.
+ * Supertonic 3 — Supertone-aligned technical landing
+ * Hand-rolled, no framework. Manrope for brand/UI type, IBM Plex Mono
+ * for code. Continuous reflow via clamp() + container queries.
  * ============================================================ */
 
 /* ---------- Design tokens ---------- */
 :root {
-  /* Palette: ink + page + accent yellow + cool blue.
-     Not generic-AI (no purple gradients); kept from the original build. */
-  --ink:        #0B0C0E;
-  --ink-soft:   #1F2024;
-  --muted:      #5C6068;
-  --line:       #E6E7EB;
-  --line-soft:  #F0F1F4;
-  --page:       #F7F4ED;            /* warm off-white — gives serif headlines paper feel */
-  --page-edge:  #EFEAE0;
+  /* Palette: close to Supertone's public web identity: black, white,
+     Supertonic yellow, and Supertone blue. */
+  --ink:        #090909;
+  --ink-soft:   #202020;
+  --muted:      #5D5D5D;
+  --line:       #DBDBDB;
+  --line-soft:  #F0F0F0;
+  --page:       #F4F4F4;
+  --page-edge:  #FFFFFF;
   --card:       #FFFFFF;
-  --accent:     #F5D90A;
-  --accent-ink: #0B0C0E;
-  --accent-soft:#FFF6BD;
-  --info:       #2A4BC9;
-  --info-soft:  #E6ECFD;
+  --accent:     #F2FB41;
+  --accent-ink: #090909;
+  --accent-soft:#F4FB66;
+  --info:       #227CFF;
+  --info-soft:  #EEF6FF;
 
-  --r-card:   14px;
+  --r-card:   10px;
   --r-chip:   999px;
-  --r-btn:    10px;
+  --r-btn:    8px;
 
-  --shadow-card:    0 1px 2px rgba(11,12,14,.04), 0 12px 32px rgba(11,12,14,.05);
-  --shadow-lift:    0 2px 4px rgba(11,12,14,.06), 0 20px 48px rgba(11,12,14,.08);
-  --shadow-toast:   0 6px 24px rgba(11,12,14,.14);
+  --shadow-card:    0 1px 2px rgba(9,9,9,.04), 0 10px 28px rgba(9,9,9,.05);
+  --shadow-lift:    0 2px 4px rgba(9,9,9,.06), 0 18px 42px rgba(9,9,9,.08);
+  --shadow-toast:   0 6px 24px rgba(9,9,9,.14);
 
-  /* Type system. Fraunces gets the SOFT axis (30 default, 80 italic) so
-     headlines feel sculpted, not stamped. IBM Plex Sans gets the body
-     in a workhorse 400/500/600 range. JetBrains-rivalling Plex Mono
-     handles code. */
-  --font-display: 'Fraunces', 'Times New Roman', Georgia, serif;
-  --font-ui:      'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* Type system. Official Supertone pages lean on geometric sans type;
+     Manrope gives this page that same brand-adjacent confidence. */
+  --font-display: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-ui:      'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono:    'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   /* Fluid type ramp — every type size is a clamp() so reflow is continuous. */
@@ -53,6 +51,26 @@
   --measure: 64ch;
 }
 
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --ink:        #F7F8FA;
+  --ink-soft:   #D8DCE3;
+  --muted:      #9AA1AD;
+  --line:       #2A3038;
+  --line-soft:  #171C23;
+  --page:       #050607;
+  --page-edge:  #0A0D12;
+  --card:       #11151B;
+  --accent:     #F2FB41;
+  --accent-ink: #090909;
+  --accent-soft:#2A3010;
+  --info:       #61A0FF;
+  --info-soft:  #10213A;
+  --shadow-card: 0 1px 2px rgba(0,0,0,.35), 0 18px 52px rgba(0,0,0,.36);
+  --shadow-lift: 0 2px 4px rgba(0,0,0,.32), 0 22px 56px rgba(0,0,0,.46);
+  --shadow-toast: 0 8px 28px rgba(0,0,0,.45);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto !important; }
@@ -62,13 +80,13 @@
 *, *::before, *::after { box-sizing: border-box; }
 html {
   scroll-behavior: smooth;
-  /* Light theme — declare so scrollbars/inputs match. */
+  /* Default before the inline theme script runs; overridden immediately for dark. */
   color-scheme: light;
 }
 body {
   margin: 0;
   background:
-    radial-gradient(1100px 600px at 110% -10%, rgba(245,217,10,.10), transparent 60%),
+    radial-gradient(900px 420px at 110% -10%, rgba(34,124,255,.08), transparent 58%),
     linear-gradient(180deg, var(--page) 0%, var(--page-edge) 100%);
   background-attachment: fixed;
   color: var(--ink);
@@ -78,6 +96,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+html[data-theme="dark"] body {
+  background:
+    radial-gradient(980px 420px at 110% -12%, rgba(34,124,255,.18), transparent 58%),
+    radial-gradient(720px 380px at -10% 24%, rgba(242,251,65,.09), transparent 62%),
+    linear-gradient(180deg, var(--page) 0%, var(--page-edge) 100%);
 }
 
 /* Sections sit under a sticky header; offset anchor scrolls so headings
@@ -130,6 +154,7 @@ a.plain, .footer a, .nav a, .cta-link, .btn, .brand, .install-tab, .copy-pill, .
 .stub-note a, .license-card a { color: var(--info); text-decoration: underline; text-underline-offset: 3px; }
 .stub-note a:hover, .license-card a:hover { color: var(--ink); }
 button { font: inherit; cursor: pointer; }
+[hidden] { display: none !important; }
 
 :focus-visible {
   outline: 2px solid var(--info);
@@ -139,12 +164,11 @@ button { font: inherit; cursor: pointer; }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.018em;
+  font-weight: 800;
+  letter-spacing: -0.024em;
   color: var(--ink);
   margin: 0 0 .4em;
   line-height: 1.08;
-  font-variation-settings: "opsz" 100, "SOFT" 30;
   text-wrap: balance;          /* prevent widows; falls back gracefully */
 }
 p { text-wrap: pretty; }
@@ -153,11 +177,101 @@ h3 {
   font-weight: 600;
   font-size: var(--t-h3);
   letter-spacing: -0.01em;
-  font-variation-settings: normal;
 }
 p { margin: 0 0 1em; color: var(--ink-soft); }
 
 code, kbd, samp, pre { font-family: var(--font-mono); font-size: .92em; }
+
+/* Dark theme overrides keep "ink as
+   text" and "ink as surface" from collapsing into the same color. */
+html[data-theme="dark"] main a:hover {
+  color: var(--accent-ink);
+}
+html[data-theme="dark"] section.block {
+  border-top-color: rgba(255,255,255,.08);
+}
+html[data-theme="dark"] .skip-link,
+html[data-theme="dark"] .spec-highlight,
+html[data-theme="dark"] .btn.primary,
+html[data-theme="dark"] .sample-num,
+html[data-theme="dark"] .audio-row.ours::before,
+html[data-theme="dark"] .copy-btn.copied {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent);
+}
+html[data-theme="dark"] .btn.primary:hover,
+html[data-theme="dark"] .btn.accent:hover {
+  background: #DDE737;
+  border-color: #DDE737;
+  color: var(--accent-ink);
+}
+html[data-theme="dark"] .tab[aria-selected="true"] {
+  background: var(--info);
+  border-color: var(--info);
+  color: #fff;
+}
+html[data-theme="dark"] .tab.chip-tab[aria-selected="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+html[data-theme="dark"] .quicklink.ql-code .ql-mark,
+html[data-theme="dark"] .code-block,
+html[data-theme="dark"] .toast,
+html[data-theme="dark"] .vb-callout {
+  background: #050607;
+  color: #fff;
+}
+html[data-theme="dark"] .chip-copy.copied .chip-prefix {
+  background: #050607;
+  color: var(--accent);
+}
+html[data-theme="dark"] .lang-block {
+  background-image: linear-gradient(180deg, rgba(34,124,255,0) 0%, rgba(34,124,255,.07) 100%);
+}
+html[data-theme="dark"] .hero-waveform {
+  color: rgba(242,251,65,.12);
+}
+html[data-theme="dark"] .quicklink:hover,
+html[data-theme="dark"] .lang:hover {
+  border-color: rgba(242,251,65,.35);
+}
+html[data-theme="dark"] .filter-bar {
+  border-top-color: rgba(255,255,255,.08);
+  border-bottom-color: rgba(255,255,255,.08);
+}
+html[data-theme="dark"] .sample-quote {
+  background: #0B0F15;
+  border-left-color: var(--accent);
+}
+html[data-theme="dark"] .sample-quote code {
+  background: var(--line-soft);
+}
+html[data-theme="dark"] .audio-row.reference {
+  border-color: rgba(97,160,255,.24);
+}
+html[data-theme="dark"] .audio-row.ours {
+  background: linear-gradient(90deg, rgba(242,251,65,.18) 0%, rgba(242,251,65,.06) 100%);
+  border-color: rgba(242,251,65,.38);
+  border-left-color: var(--accent);
+}
+html[data-theme="dark"] .audio-row.ours .row-label .sub {
+  color: var(--accent);
+}
+html[data-theme="dark"] table.bench tr.row-accent td:first-child {
+  border-left-color: var(--accent);
+}
+html[data-theme="dark"] table.bench tr.row-accent {
+  border-top-color: var(--accent);
+}
+html[data-theme="dark"] .callout.is-accent {
+  border-color: rgba(242,251,65,.42);
+  background: linear-gradient(180deg, rgba(242,251,65,.13) 0%, rgba(242,251,65,.04) 100%);
+}
+html[data-theme="dark"] .install-tab[aria-selected="true"]::after {
+  background: var(--accent);
+}
 
 .container {
   width: 100%;
@@ -302,9 +416,8 @@ code, kbd, samp, pre { font-family: var(--font-mono); font-size: .92em; }
 }
 .brand {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1.15rem;
-  font-variation-settings: "opsz" 9, "SOFT" 30;
   letter-spacing: -0.01em;
   display: inline-flex;
   align-items: center;
@@ -372,6 +485,28 @@ code, kbd, samp, pre { font-family: var(--font-mono); font-size: .92em; }
 .cta-link:hover { color: var(--ink); }
 .cta-link.gh    { display: inline-flex; align-items: center; padding: 6px; border-radius: 6px; }
 .cta-link.gh:hover { background: var(--line-soft); }
+
+.theme-toggle {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background .15s ease, border-color .15s ease, color .15s ease, transform .12s ease;
+}
+.theme-toggle:hover {
+  background: var(--line-soft);
+  border-color: color-mix(in srgb, var(--ink) 26%, var(--line));
+}
+.theme-toggle:active { transform: translateY(1px); }
+.theme-icon { display: none; }
+html[data-theme="dark"] .theme-icon-sun { display: block; }
+html:not([data-theme="dark"]) .theme-icon-moon { display: block; }
 
 .nav-toggle { display: none; padding: 8px; }
 
@@ -444,35 +579,26 @@ details.mobile-menu { display: none; }
 
 .hero-headline {
   font-size: var(--t-display);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.045em;
   margin: 0;
-  font-variation-settings: "opsz" 144, "SOFT" 30;
-  font-weight: 500;
+  font-weight: 800;
   line-height: 0.98;
   max-width: 18ch;
 }
 .hero-headline .line { display: block; }
-/* Magazine kicker: the brand name acts as a label/title above the
-   3-line tagline. Same Fraunces family, sized ~30% of the display so it
-   registers identity without competing with the big lines. */
 .hero-headline .line-prefix {
   font-size: clamp(.95rem, 1.4vw + 0.4rem, 1.5rem);
-  font-variation-settings: "opsz" 36, "SOFT" 30;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--muted);
   line-height: 1.15;
   margin-bottom: clamp(8px, 1vw, 14px);
 }
 .hero-italic {
-  font-style: italic;
-  font-weight: 500;
-  font-variation-settings: "opsz" 144, "SOFT" 80;
-  color: var(--ink);
-  background-image: linear-gradient(transparent 62%, var(--accent) 62%, var(--accent) 92%, transparent 92%);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  padding: 0 .08em;
+  font-style: normal;
+  font-weight: 800;
+  color: var(--info);
+  padding: 0;
 }
 .hero-sub {
   font-size: var(--t-sub);
@@ -632,14 +758,13 @@ section.block {
 .section-title {
   font-size: var(--t-h2);
   letter-spacing: -0.02em;
-  font-weight: 500;
+  font-weight: 800;
   margin-bottom: .4em;
-  font-variation-settings: "opsz" 60, "SOFT" 30;
 }
 .section-title em {
-  font-style: italic;
-  font-weight: 500;
-  font-variation-settings: "opsz" 60, "SOFT" 80;
+  font-style: normal;
+  font-weight: 800;
+  color: var(--info);
 }
 .section-sub {
   font-size: var(--t-sub);
@@ -746,29 +871,38 @@ section.block {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   margin-bottom: 6px;
 }
 .filter-row:last-child { margin-bottom: 0; }
 .filter-row .filter-label {
+  display: inline-flex;
+  align-items: center;
   font-family: var(--font-mono);
   font-size: .68rem;
+  line-height: 1;
   text-transform: uppercase;
   letter-spacing: .14em;
   color: var(--muted);
   font-weight: 500;
   margin-right: 8px;
   min-width: 68px;
+  min-height: 34px;
 }
 .tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: transparent;
   border: 1px solid transparent;
-  padding: 7px 14px;
+  min-height: 34px;
+  padding: 0 14px;
   border-radius: var(--r-chip);
   color: var(--ink-soft);
   font-weight: 500;
   font-family: var(--font-ui);
   font-size: .88rem;
+  line-height: 1;
   transition: background .15s ease, color .15s ease, border-color .15s ease;
 }
 .tab:hover { background: var(--line-soft); color: var(--ink); }
@@ -794,6 +928,15 @@ section.block {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
+}
+.sample-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.sample-more {
+  min-width: 190px;
+  justify-content: center;
 }
 .sample {
   background: var(--card);
@@ -839,8 +982,7 @@ section.block {
   color: var(--ink);
   margin: 0;
   line-height: 1.6;
-  font-family: var(--font-display);
-  font-variation-settings: "opsz" 14, "SOFT" 30;
+  font-family: var(--font-ui);
 }
 .sample-quote .quote-mark {
   position: absolute;
@@ -857,7 +999,6 @@ section.block {
   border-radius: 4px;
   font-size: .78em;
   color: var(--info);
-  font-variation-settings: normal;
   font-family: var(--font-mono);
 }
 
@@ -985,16 +1126,15 @@ section.block {
 .vb-headline {
   font-family: var(--font-display);
   font-size: clamp(1.6rem, 3vw + 0.5rem, 2.8rem);
-  font-weight: 500;
-  font-variation-settings: "opsz" 80, "SOFT" 30;
+  font-weight: 800;
   color: #fff;
   line-height: 1.05;
   letter-spacing: -0.02em;
   margin: 0 0 12px;
 }
 .vb-headline em {
-  font-style: italic;
-  font-variation-settings: "opsz" 80, "SOFT" 80;
+  font-style: normal;
+  font-weight: 800;
   color: var(--accent);
 }
 .vb-text {
@@ -1165,9 +1305,8 @@ table.bench tr.row-accent td:first-child {
 }
 .callout .big {
   font-family: var(--font-display);
-  font-variation-settings: "opsz" 40, "SOFT" 30;
   font-size: clamp(1.4rem, 2vw + 0.5rem, 1.9rem);
-  font-weight: 500;
+  font-weight: 800;
   color: var(--ink);
   display: block;
   margin-bottom: 4px;

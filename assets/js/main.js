@@ -73,6 +73,36 @@
     }
   };
 
+  // ---------- theme toggle ----------
+  const themeMeta = $("#theme-color");
+  const applyTheme = (theme, persist = true) => {
+    const next = theme === "light" ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    if (themeMeta) themeMeta.setAttribute("content", next === "dark" ? "#050607" : "#F4F4F4");
+    $$("[data-theme-toggle]").forEach((btn) => {
+      const label = next === "dark" ? "Switch to light mode" : "Switch to dark mode";
+      btn.setAttribute("aria-label", label);
+      btn.setAttribute("title", label);
+    });
+    if (persist) {
+      try { window.localStorage.setItem("supertonic-theme", next); } catch (_) {}
+    }
+  };
+
+  const setupThemeToggle = () => {
+    const buttons = $$("[data-theme-toggle]");
+    if (!buttons.length) return;
+    applyTheme(document.documentElement.dataset.theme, false);
+    buttons.forEach((btn) => {
+      if (btn.dataset.bound === "true") return;
+      btn.dataset.bound = "true";
+      btn.addEventListener("click", () => {
+        const current = document.documentElement.dataset.theme === "light" ? "light" : "dark";
+        applyTheme(current === "dark" ? "light" : "dark");
+      });
+    });
+  };
+
   document.addEventListener("click", async (e) => {
     const btn = e.target.closest("[data-copy-text]");
     if (!btn) return;
@@ -166,6 +196,8 @@
 
   // ---------- filter state ----------
   const state = { domain: "all", lang: "all", gender: "all" };
+  const INITIAL_SAMPLE_LIMIT = 6;
+  let samplesExpanded = false;
 
   // ---------- render: sample cards ----------
   const renderSampleCard = (sample, index) => {
@@ -238,6 +270,7 @@
   const renderSamples = () => {
     const grid = $("#samples-grid");
     const empty = $("#no-results");
+    const moreBtn = $("#sample-more");
     if (!grid) return;
 
     const all = window.SAMPLES || [];
@@ -262,13 +295,41 @@
 
     grid.innerHTML = "";
     if (filtered.length === 0) {
-      empty.hidden = false;
+      if (empty) empty.hidden = false;
+      if (moreBtn) moreBtn.hidden = true;
       return;
     }
-    empty.hidden = true;
+    if (empty) empty.hidden = true;
+
+    const shouldLimit = !samplesExpanded && filtered.length > INITIAL_SAMPLE_LIMIT;
+    const visibleSamples = shouldLimit ? filtered.slice(0, INITIAL_SAMPLE_LIMIT) : filtered;
+
     const frag = document.createDocumentFragment();
-    filtered.forEach((s, i) => frag.appendChild(renderSampleCard(s, i)));
+    visibleSamples.forEach((s, i) => frag.appendChild(renderSampleCard(s, i)));
     grid.appendChild(frag);
+
+    if (moreBtn) {
+      const hasMore = filtered.length > INITIAL_SAMPLE_LIMIT;
+      const remaining = Math.max(0, filtered.length - visibleSamples.length);
+      moreBtn.hidden = !hasMore;
+      moreBtn.textContent = samplesExpanded
+        ? "Show fewer samples"
+        : `Show ${remaining} more ${remaining === 1 ? "sample" : "samples"}`;
+      moreBtn.setAttribute("aria-expanded", samplesExpanded ? "true" : "false");
+    }
+  };
+
+  const setupSampleMore = () => {
+    const moreBtn = $("#sample-more");
+    if (!moreBtn || moreBtn.dataset.bound === "true") return;
+    moreBtn.dataset.bound = "true";
+    moreBtn.addEventListener("click", () => {
+      samplesExpanded = !samplesExpanded;
+      renderSamples();
+      if (!samplesExpanded) {
+        $("#samples")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
   };
 
   // ---------- filter tab wiring ----------
@@ -279,6 +340,7 @@
 
     const select = (value) => {
       state[group] = value;
+      samplesExpanded = false;
       tabs.forEach((t) => {
         const selected = t.dataset.value === value;
         t.setAttribute("aria-selected", selected ? "true" : "false");
@@ -317,6 +379,7 @@
     const grid = $("#lang-grid");
     if (!grid) return;
     const list = window.LANGUAGES || [];
+    grid.innerHTML = "";
     const frag = document.createDocumentFragment();
     list.forEach((lang) => {
       const li = document.createElement("li");
@@ -384,9 +447,11 @@
     setupFilterGroup("domain");
     setupFilterGroup("lang");
     setupFilterGroup("gender");
+    setupSampleMore();
     renderSamples();
     renderLanguageGrid();
     setupInstallTabs();
+    setupThemeToggle();
     setYear();
   });
 
@@ -397,9 +462,11 @@
     setupFilterGroup("domain");
     setupFilterGroup("lang");
     setupFilterGroup("gender");
+    setupSampleMore();
     renderSamples();
     renderLanguageGrid();
     setupInstallTabs();
+    setupThemeToggle();
     setYear();
   }
 })();
