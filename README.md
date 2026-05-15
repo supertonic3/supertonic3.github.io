@@ -107,9 +107,9 @@ takes ~1 minute; subsequent updates propagate in seconds.
 
 ## Design choices (short)
 
-- Palette sampled from the Supertonic banner: ink `#0B0C0E`, page
-  `#FAFAFB`, accent yellow `#F5D90A`, secondary blue `#3457D5`.
-- Inter for UI, JetBrains Mono for code and number chips. Hand-rolled CSS,
+- Palette follows the Supertonic product surfaces: black canvas `#050505`,
+  lightning yellow `#F5E900`, and electric blue `#2F6BFF`.
+- Pretendard for UI, JetBrains Mono for code and number chips. Hand-rolled CSS,
   no Tailwind, no chart library — the ×RT bar chart is inline SVG.
 - The Listening Samples section follows the
   [RobustSpeechFlow](https://robustspeechflow.github.io/) layout: filter

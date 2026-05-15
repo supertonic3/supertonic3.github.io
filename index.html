@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Supertonic 3 — Lightning-Fast, On-Device, Multilingual TTS</title>
   <meta name="description" content="Supertonic 3 is a 99M-parameter open-weight text-to-speech model from Supertone. Runs on CPU via ONNX Runtime. No GPU. No cloud. No API. 31 languages." />
-  <meta name="theme-color" content="#F5D90A" />
+  <meta name="theme-color" content="#050607" id="theme-color" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -31,11 +31,25 @@
   <link rel="icon" type="image/png" sizes="any" href="assets/images/logo_square.png" />
   <link rel="apple-touch-icon" href="assets/images/logo_square.png" />
 
-  <!-- Fonts: Fraunces display serif, IBM Plex Sans body, IBM Plex Mono code -->
+  <!-- Fonts: Manrope aligns with the Supertone web identity; IBM Plex Mono keeps code readable. -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..900,30;1,9..144,400..900,80&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" />
 
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      const requested = params.get("theme");
+      let saved = null;
+      try { saved = window.localStorage.getItem("supertonic-theme"); } catch (_) {}
+      const theme = requested === "light" || requested === "dark"
+        ? requested
+        : saved === "light" || saved === "dark"
+          ? saved
+          : "dark";
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -62,6 +76,15 @@
       <div class="header-ctas">
         <a class="cta-link" href="https://huggingface.co/spaces/Supertone/supertonic-3" target="_blank" rel="noopener">Hugging Face ↗</a>
         <a class="cta-link" href="https://supertonic.supertone.ai/voice_builder" target="_blank" rel="noopener">Voice Builder ↗</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light mode" title="Switch to light mode">
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8z"/>
+          </svg>
+        </button>
         <a class="cta-link gh" href="https://github.com/supertone-inc/supertonic" target="_blank" rel="noopener" aria-label="GitHub repository">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.27-.01-1-.02-1.97-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.34.95.1-.74.4-1.24.73-1.53-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.9-.39s1.98.13 2.9.39c2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.11 3.05.73.8 1.18 1.83 1.18 3.09 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.67.8.56C20.21 21.38 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
         </a>
@@ -258,6 +281,9 @@
         <div class="samples-grid" id="samples-grid" aria-live="polite">
           <!-- sample cards injected by main.js, sorted en → ko → ja -->
         </div>
+        <div class="sample-more-wrap">
+          <button class="btn sample-more" id="sample-more" type="button" aria-controls="samples-grid" hidden>Show more samples</button>
+        </div>
         <p class="no-results" id="no-results" hidden>No samples match those filters.</p>
       </div>
     </section>
@@ -379,23 +405,23 @@
           <h3>Synthesis throughput (×RT, higher is better)</h3>
           <p class="chart-sub">Seconds of speech produced per second of wall-clock time, across the same 30 inputs.</p>
           <svg viewBox="0 0 720 220" role="img" aria-label="Bar chart: Supertonic 3 5.00x, OmniVoice 5.11x, Chatterbox 1.27x">
-            <line x1="190" y1="20" x2="190" y2="200" stroke="#E6E7EB" stroke-width="1"/>
-            <line x1="190" y1="200" x2="700" y2="200" stroke="#E6E7EB" stroke-width="1"/>
+            <line x1="190" y1="20" x2="190" y2="200" stroke="var(--line)" stroke-width="1"/>
+            <line x1="190" y1="200" x2="700" y2="200" stroke="var(--line)" stroke-width="1"/>
 
-            <text x="180" y="46" text-anchor="end" font-size="13" fill="#0B0C0E" font-weight="600">Supertonic 3</text>
-            <text x="180" y="61" text-anchor="end" font-size="10" fill="#5C6068">CPU · 99M</text>
+            <text x="180" y="46" text-anchor="end" font-size="13" fill="currentColor" font-weight="600">Supertonic 3</text>
+            <text x="180" y="61" text-anchor="end" font-size="10" fill="var(--muted)">CPU · 99M</text>
             <rect x="190" y="32" height="36" width="500" rx="4" fill="#F5D90A"/>
-            <text x="700" y="55" text-anchor="end" font-size="13" fill="#0B0C0E" font-weight="700" font-family="IBM Plex Mono, monospace">5.00×</text>
+            <text x="678" y="55" text-anchor="end" font-size="13" fill="#0B0C0E" font-weight="700" font-family="IBM Plex Mono, monospace">5.00×</text>
 
-            <text x="180" y="106" text-anchor="end" font-size="13" fill="#0B0C0E" font-weight="600">OmniVoice</text>
-            <text x="180" y="121" text-anchor="end" font-size="10" fill="#5C6068">GPU · 800M</text>
+            <text x="180" y="106" text-anchor="end" font-size="13" fill="currentColor" font-weight="600">OmniVoice</text>
+            <text x="180" y="121" text-anchor="end" font-size="10" fill="var(--muted)">GPU · 800M</text>
             <rect x="190" y="92" height="36" width="511" rx="4" fill="#9aa0aa"/>
-            <text x="700" y="115" text-anchor="end" font-size="13" fill="#fff" font-weight="700" font-family="IBM Plex Mono, monospace">5.11×</text>
+            <text x="690" y="115" text-anchor="end" font-size="13" fill="#fff" font-weight="700" font-family="IBM Plex Mono, monospace">5.11×</text>
 
-            <text x="180" y="166" text-anchor="end" font-size="13" fill="#0B0C0E" font-weight="600">Chatterbox</text>
-            <text x="180" y="181" text-anchor="end" font-size="10" fill="#5C6068">GPU · 500M</text>
+            <text x="180" y="166" text-anchor="end" font-size="13" fill="currentColor" font-weight="600">Chatterbox</text>
+            <text x="180" y="181" text-anchor="end" font-size="10" fill="var(--muted)">GPU · 500M</text>
             <rect x="190" y="152" height="36" width="127" rx="4" fill="#c8ccd2"/>
-            <text x="324" y="175" font-size="13" fill="#0B0C0E" font-weight="700" font-family="IBM Plex Mono, monospace">1.27×</text>
+            <text x="307" y="175" text-anchor="end" font-size="13" fill="#0B0C0E" font-weight="700" font-family="IBM Plex Mono, monospace">1.27×</text>
           </svg>
         </div>
 
@@ -574,7 +600,6 @@ tts.save_audio(wav, "output.wav")' aria-label="Copy Python snippet">
       <div class="links">
         <a href="https://supertone.ai" target="_blank" rel="noopener">supertone.ai</a>
         <a href="https://supertone.ai/blog" target="_blank" rel="noopener">Blog</a>
-        <a href="https://supertone.ai/careers" target="_blank" rel="noopener">Careers</a>
         <a href="https://github.com/supertone-inc/supertonic" target="_blank" rel="noopener">GitHub</a>
         <a href="https://huggingface.co/Supertone/supertonic-3" target="_blank" rel="noopener">Hugging Face</a>
         <a href="https://supertonic.supertone.ai/voice_builder" target="_blank" rel="noopener">Voice Builder</a>
