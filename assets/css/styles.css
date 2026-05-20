@@ -219,7 +219,7 @@ html[data-theme="dark"] .tab.chip-tab[aria-selected="true"] {
 html[data-theme="dark"] .quicklink.ql-code .ql-mark,
 html[data-theme="dark"] .code-block,
 html[data-theme="dark"] .toast,
-html[data-theme="dark"] .vb-callout {
+html[data-theme="dark"] .ecosystem-callout {
   background: #050607;
   color: #fff;
 }
@@ -617,8 +617,8 @@ details.mobile-menu { display: none; }
 }
 
 .hero-actions {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, max-content));
+  display: flex;
+  flex-wrap: wrap;
   gap: clamp(16px, 2.5vw, 28px);
   margin-top: 6px;
 }
@@ -626,6 +626,8 @@ details.mobile-menu { display: none; }
   display: flex;
   flex-direction: column;
   gap: 8px;
+  flex: 0 1 max-content;
+  min-width: 0;
   max-width: 28ch;
 }
 .action-helper {
@@ -655,8 +657,8 @@ details.mobile-menu { display: none; }
   vertical-align: 1.5px;
 }
 @media (max-width: 640px) {
-  .hero-actions { grid-template-columns: 1fr; }
-  .hero-actions .action { max-width: none; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .action { max-width: none; width: 100%; }
   .hero-actions .btn { width: 100%; justify-content: center; }
 }
 
@@ -1078,16 +1080,16 @@ section.block {
   gap: 8px;
 }
 
-/* ---------- Voice Builder callout (dark band between samples and benchmark) ---------- */
-.vb-callout {
+/* ---------- Ecosystem callout (dark band: Voice Builder · Supertone Play · Supertone API) ---------- */
+.ecosystem-callout {
   background: var(--ink);
   color: #fff;
-  padding: clamp(2rem, 5vw, 3.5rem) 0;
+  padding: clamp(2.4rem, 5vw, 4rem) 0;
   position: relative;
   overflow: hidden;
   isolation: isolate;
 }
-.vb-callout::before {
+.ecosystem-callout::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -1097,17 +1099,15 @@ section.block {
   pointer-events: none;
   z-index: -1;
 }
-.vb-inner {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: clamp(1rem, 3vw, 2.5rem);
-  align-items: center;
+.ecosystem-inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vw, 2.4rem);
 }
-.vb-body { min-width: 0; }
-.vb-logo {
-  /* Wide Supertonic wordmark logo. Gray glyphs on transparent — reads well
-     on the dark band. Capped small so it acts as a brand affordance, not
-     a decorative banner. */
+.ecosystem-head { max-width: 60ch; }
+.ecosystem-logo {
+  /* Wide Supertonic wordmark — gray glyphs on transparent, sized small so it
+     reads as a brand affordance, not a banner. */
   height: clamp(22px, 2vw + 14px, 30px);
   width: auto;
   max-width: 260px;
@@ -1115,7 +1115,7 @@ section.block {
   margin-bottom: 18px;
   opacity: .92;
 }
-.vb-eyebrow {
+.ecosystem-eyebrow {
   font-family: var(--font-mono);
   font-size: var(--t-kicker);
   text-transform: uppercase;
@@ -1123,55 +1123,83 @@ section.block {
   color: var(--accent);
   margin-bottom: 12px;
 }
-.vb-headline {
+.ecosystem-headline {
   font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3vw + 0.5rem, 2.8rem);
+  font-size: clamp(1.5rem, 2.4vw + 0.5rem, 2.4rem);
   font-weight: 800;
   color: #fff;
-  line-height: 1.05;
+  line-height: 1.08;
   letter-spacing: -0.02em;
-  margin: 0 0 12px;
+  margin: 0 0 10px;
 }
-.vb-headline em {
+.ecosystem-headline em {
   font-style: normal;
   font-weight: 800;
   color: var(--accent);
 }
-.vb-text {
+.ecosystem-sub {
   font-size: var(--t-sub);
-  color: rgba(255,255,255,.84);
-  max-width: 56ch;
+  color: rgba(255,255,255,.78);
   margin: 0;
   line-height: 1.5;
 }
-.vb-text a {
-  color: #fff;
-  background-image: linear-gradient(var(--accent), var(--accent));
-  background-size: 100% 2px;
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-  padding-bottom: 2px;
+
+.ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(14px, 1.8vw, 26px);
+  align-items: stretch;
 }
-.vb-text a:hover { background-size: 100% 8px; }
-.vb-btn { flex-shrink: 0; }
-/* Rollout status row inside the Voice Builder band. Sits below vb-text,
-   surfaces the current Supertonic 2 → 3 transition so the CTA doesn't
-   set the wrong expectation. */
-.vb-status {
-  display: inline-flex;
-  align-items: flex-start;
+.ecosystem-card {
+  display: flex;
+  flex-direction: column;
   gap: 12px;
-  margin-top: clamp(14px, 1.5vw, 20px);
-  padding: 10px 14px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px;
+  padding: clamp(18px, 1.6vw + 10px, 28px);
+  min-width: 0;
+}
+.ecosystem-card-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--t-kicker);
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  color: var(--accent);
+}
+.ecosystem-card-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 0.7vw + 0.95rem, 1.5rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.ecosystem-card-title em {
+  font-style: normal;
+  font-weight: 800;
+  color: var(--accent);
+}
+.ecosystem-card-text {
+  font-size: .98rem;
+  color: rgba(255,255,255,.82);
+  line-height: 1.5;
+  margin: 0;
+}
+.ecosystem-card-status {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
   background: rgba(245, 217, 10, .08);
   border: 1px solid rgba(245, 217, 10, .35);
   border-radius: 10px;
-  max-width: 64ch;
-  line-height: 1.5;
+  line-height: 1.45;
 }
-.vb-status-pill {
+.ecosystem-status-pill {
   font-family: var(--font-mono);
-  font-size: .65rem;
+  font-size: .62rem;
   letter-spacing: .16em;
   text-transform: uppercase;
   background: var(--accent);
@@ -1182,16 +1210,22 @@ section.block {
   flex-shrink: 0;
   margin-top: 2px;
 }
-.vb-status-text {
-  font-size: .9rem;
+.ecosystem-status-text {
+  font-size: .86rem;
   color: rgba(255, 255, 255, .9);
 }
-.vb-status-text strong {
+.ecosystem-status-text strong {
   color: #fff;
   font-weight: 600;
 }
-@media (max-width: 720px) {
-  .vb-inner { grid-template-columns: 1fr; }
+.ecosystem-cta {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+@media (max-width: 960px) {
+  .ecosystem-grid { grid-template-columns: 1fr; }
+  .ecosystem-cta { align-self: stretch; justify-content: center; }
 }
 
 /* ---------- Benchmark ---------- */
