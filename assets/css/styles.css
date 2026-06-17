@@ -1146,7 +1146,7 @@ section.block {
 
 .ecosystem-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(14px, 1.8vw, 26px);
   align-items: stretch;
 }
@@ -1223,7 +1223,11 @@ section.block {
   align-self: flex-start;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1040px) {
+  .ecosystem-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 720px) {
   .ecosystem-grid { grid-template-columns: 1fr; }
   .ecosystem-cta { align-self: stretch; justify-content: center; }
 }
